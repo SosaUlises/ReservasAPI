@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "yjdVZxfSa8c=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.API\\Sosa.Reservas.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ulipv\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.8\\microsoft.aspnetcore.openapi.9.0.8.nupkg.sha512",
+    "C:\\Users\\ulipv\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

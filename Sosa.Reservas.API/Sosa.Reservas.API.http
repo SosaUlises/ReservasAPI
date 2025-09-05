@@ -1,0 +1,6 @@
+@Sosa.Reservas.API_HostAddress = http://localhost:5186
+
+GET {{Sosa.Reservas.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
