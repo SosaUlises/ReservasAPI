@@ -11,7 +11,7 @@ builder.Services.AddOpenApi();
 
 // Conexion Db
 builder.Services.AddDbContext<DataBaseService>(options => 
-options.UseSqlServer(builder.Configuration["SQLConnectionStrings"]));
+options.UseSqlServer(builder.Configuration.GetConnectionString("SQLConnectionStrings")));
 
 // Inyecciones de dependencia servicios
 builder.Services.AddScoped<IDataBaseService, DataBaseService>();
