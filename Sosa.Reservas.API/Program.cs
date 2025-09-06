@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Sosa.Reservas.API;
+using Sosa.Reservas.Application;
 using Sosa.Reservas.Application.Interfaces;
+using Sosa.Reservas.Common;
+using Sosa.Reservas.External;
+using Sosa.Reservas.Persistence;
 using Sosa.Reservas.Persistence.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,16 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-
-
-// Conexion Db
-builder.Services.AddDbContext<DataBaseService>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("SQLConnectionStrings")));
-
-// Inyecciones de dependencia servicios
-builder.Services.AddScoped<IDataBaseService, DataBaseService>();
-
-
+// Inyeccion de dependencias
+builder.Services
+    .AddWebApi()
+    .AddCommon()
+    .AddApplication()
+    .AddExternal(builder.Configuration)
+    .AddPersistence(builder.Configuration);
 
 
 var app = builder.Build();
