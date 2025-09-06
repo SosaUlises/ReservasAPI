@@ -1,10 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using Sosa.Reservas.Application.Interfaces;
+using Sosa.Reservas.Persistence.DataBase;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+
+
+// Conexion Db
+builder.Services.AddDbContext<DataBaseService>(options => 
+options.UseSqlServer(builder.Configuration["SQLConnectionStrings"]));
+
+// Inyecciones de dependencia servicios
+builder.Services.AddScoped<IDataBaseService, DataBaseService>();
+
+
+
 
 var app = builder.Build();
 
