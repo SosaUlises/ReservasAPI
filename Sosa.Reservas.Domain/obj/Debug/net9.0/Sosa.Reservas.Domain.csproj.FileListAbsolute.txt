@@ -1,0 +1,15 @@
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\bin\Debug\net9.0\Sosa.Reservas.Domain.deps.json
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\bin\Debug\net9.0\Sosa.Reservas.Domain.runtimeconfig.json
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\bin\Debug\net9.0\Sosa.Reservas.Domain.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\bin\Debug\net9.0\Sosa.Reservas.Domain.pdb
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.csproj.AssemblyReference.cache
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.AssemblyInfoInputs.cache
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.AssemblyInfo.cs
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.sourcelink.json
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\refint\Sosa.Reservas.Domain.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.pdb
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\Sosa.Reservas.Domain.genruntimeconfig.cache
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Domain\obj\Debug\net9.0\ref\Sosa.Reservas.Domain.dll

@@ -1,14 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sosa.Reservas.Application.Interfaces;
+using Sosa.Reservas.Application.DataBase;
 using Sosa.Reservas.Domain.Entidades.Cliente;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 using Sosa.Reservas.Persistence.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sosa.Reservas.Persistence.DataBase
 {

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Sosa.Reservas.API;
 using Sosa.Reservas.Application;
-using Sosa.Reservas.Application.Interfaces;
+using Sosa.Reservas.Application.DataBase;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;

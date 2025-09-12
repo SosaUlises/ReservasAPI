@@ -1,13 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Sosa.Reservas.Application.Interfaces;
+using Sosa.Reservas.Application.DataBase;
 using Sosa.Reservas.Persistence.DataBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sosa.Reservas.External
 {

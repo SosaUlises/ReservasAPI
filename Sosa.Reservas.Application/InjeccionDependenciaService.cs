@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Sosa.Reservas.Application.Configuration;
+using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 
 namespace Sosa.Reservas.Application
 {
@@ -10,6 +11,8 @@ namespace Sosa.Reservas.Application
         {
 
             services.AddAutoMapper(typeof(MapperProfile));
+            services.AddTransient<ICreateUsuarioCommand, CreateUsuarioCommand>();
+
             return services;
         }
     }
