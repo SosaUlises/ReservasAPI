@@ -4,6 +4,7 @@ using Sosa.Reservas.Application.Configuration;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
+using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 
 namespace Sosa.Reservas.Application
 {
@@ -16,6 +17,7 @@ namespace Sosa.Reservas.Application
             services.AddTransient<ICreateUsuarioCommand, CreateUsuarioCommand>();
             services.AddTransient<IUpdateUsuarioCommand, UpdateUsuarioCommand>();
             services.AddTransient<IDeleteUsuarioCommand, DeleteUsuarioCommand>();
+            services.AddTransient<IUpdateUsuarioPasswordCommand, UpdateUsuarioPasswordCommand>();
 
             return services;
         }
