@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\reserva\\queries\\getreservasbytipo\\getreservasbytipoquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\reserva\\queries\\getreservasbytipo\\getreservasbytipoquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71B2CC70-6226-4227-BB09-ABC98AC72E85}|Sosa.Reservas.API\\Sosa.Reservas.API.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2CC70-6226-4227-BB09-ABC98AC72E85}|Sosa.Reservas.API\\Sosa.Reservas.API.csproj|solutionrelative:sosa.reservas.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{882D4A52-587E-42C3-B0C1-14754B25CB61}|Sosa.Reservas.Domain\\Sosa.Reservas.Domain.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.domain\\entidades\\reserva\\reservaentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{882D4A52-587E-42C3-B0C1-14754B25CB61}|Sosa.Reservas.Domain\\Sosa.Reservas.Domain.csproj|solutionrelative:sosa.reservas.domain\\entidades\\reserva\\reservaentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +46,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetAllReservasModel.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasModel.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasModel.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasModel.cs",
-              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "GetReservasByTipoQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetReservasByTipo\\GetReservasByTipoQuery.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetReservasByTipo\\GetReservasByTipoQuery.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetReservasByTipo\\GetReservasByTipoQuery.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetReservasByTipo\\GetReservasByTipoQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T02:12:16.24Z",
+              "WhenOpened": "2025-09-13T02:29:59.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "GetAllReservasQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T02:26:52.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MapperProfile.cs",
               "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
               "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
               "RelativeToolTip": "Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAxwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T02:06:07.326Z",
+              "WhenOpened": "2025-09-13T02:26:10.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReservaEntity.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Domain\\Entidades\\Reserva\\ReservaEntity.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Domain\\Entidades\\Reserva\\ReservaEntity.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Domain\\Entidades\\Reserva\\ReservaEntity.cs",
+              "RelativeToolTip": "Sosa.Reservas.Domain\\Entidades\\Reserva\\ReservaEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T02:19:08.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.API\\Program.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.API\\Program.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.API\\Program.cs",
+              "RelativeToolTip": "Sosa.Reservas.API\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T02:16:56.158Z",
               "EditorCaption": ""
             }
           ]

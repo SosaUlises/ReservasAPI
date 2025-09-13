@@ -15,7 +15,7 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas
 
         public async Task<List<GetAllReservasModel>> Execute()
         {
-            var listEntities = await _dataBaseService.Reservas.ToListAsync();
+            var listEntities = await _dataBaseService.Reservas.Include(x => x.Cliente).ToListAsync();
 
             return _mapper.Map<List<GetAllReservasModel>>(listEntities);
         }

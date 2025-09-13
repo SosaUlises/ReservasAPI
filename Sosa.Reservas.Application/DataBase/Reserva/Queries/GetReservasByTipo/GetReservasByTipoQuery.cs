@@ -16,7 +16,7 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo
 
         public async Task<List<GetReservasByTipoModel>> Execute(string tipo)
         {
-            var listEntities = await _dataBaseService.Reservas.Where(x => x.TipoReserva == tipo).ToListAsync();
+            var listEntities = await _dataBaseService.Reservas.Include(x=>x.Cliente).Where(x => x.TipoReserva == tipo).ToListAsync();
 
             return _mapper.Map<List<GetReservasByTipoModel>>(listEntities);
         }

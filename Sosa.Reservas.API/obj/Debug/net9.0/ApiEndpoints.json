@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente.CreateClienteModel",
+        "Type": "System.Collections.Generic.List\u00601[[Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo.GetReservasByTipoModel, Sosa.Reservas.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
