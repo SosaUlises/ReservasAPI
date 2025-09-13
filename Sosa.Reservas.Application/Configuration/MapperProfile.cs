@@ -4,6 +4,9 @@ using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
@@ -37,6 +40,23 @@ namespace Sosa.Reservas.Application.Configuration
 
             #region Reserva
             CreateMap<ReservaEntity, CreateReservaModel>().ReverseMap();
+
+            CreateMap<ReservaEntity, GetAllReservasModel>()
+                .ForMember(dest => dest.ClienteFullName,
+                    opt => opt.MapFrom(src => src.Cliente.FullName))
+                .ForMember(dest => dest.ClienteDni,
+                    opt => opt.MapFrom(src => src.Cliente.DNI));
+
+
+            CreateMap<ReservaEntity, GetReservasByDniModel>().ReverseMap();
+                
+            CreateMap<ReservaEntity, GetReservasByTipoModel>()
+                .ForMember(dest => dest.ClienteFullName,
+                    opt => opt.MapFrom(src => src.Cliente.FullName))
+                .ForMember(dest => dest.ClienteDni,
+                    opt => opt.MapFrom(src => src.Cliente.DNI));
+
+
             #endregion
         }
     }
