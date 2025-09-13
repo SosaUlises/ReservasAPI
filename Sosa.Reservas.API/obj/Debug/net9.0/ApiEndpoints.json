@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Boolean",
+        "Type": "System.Collections.Generic.List\u00601[[Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios.GetAllUsuarioModel, Sosa.Reservas.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],

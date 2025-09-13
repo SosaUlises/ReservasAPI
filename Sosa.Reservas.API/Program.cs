@@ -1,14 +1,10 @@
-using Microsoft.EntityFrameworkCore;
 using Sosa.Reservas.API;
 using Sosa.Reservas.Application;
-using Sosa.Reservas.Application.DataBase;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
+using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
-using Sosa.Reservas.Persistence.DataBase;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,5 +31,10 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapPost("/testService", async (IGetAllUsuarioQuery service) =>
+{
+    return await service.Execute();
+});
 
 app.Run();

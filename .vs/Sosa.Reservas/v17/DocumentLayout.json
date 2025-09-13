@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\injecciondependenciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\usuario\\queries\\getusuariobyusernameandpassword\\getusuariobyusernameandpasswordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\usuario\\queries\\getusuariobyusernameandpassword\\getusuariobyusernameandpasswordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\cliente\\commands\\deletecliente\\deleteclientecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\cliente\\commands\\deletecliente\\deleteclientecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\usuario\\queries\\getusuariobyusernameandpassword\\igetusuariobyusernameandpasswordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\usuario\\queries\\getusuariobyusernameandpassword\\igetusuariobyusernameandpasswordquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\cliente\\commands\\deletecliente\\ideleteclientecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\cliente\\commands\\deletecliente\\ideleteclientecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,27 +39,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IGetUsuarioByUserNameAndPasswordQuery.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\IGetUsuarioByUserNameAndPasswordQuery.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\IGetUsuarioByUserNameAndPasswordQuery.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\IGetUsuarioByUserNameAndPasswordQuery.cs",
-              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\IGetUsuarioByUserNameAndPasswordQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Title": "IDeleteClienteCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\IDeleteClienteCommand.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\IDeleteClienteCommand.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\IDeleteClienteCommand.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\IDeleteClienteCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T23:54:59.956Z",
+              "WhenOpened": "2025-09-13T00:22:29.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetUsuarioByUserNameAndPasswordQuery.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\GetUsuarioByUserNameAndPasswordQuery.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\GetUsuarioByUserNameAndPasswordQuery.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\GetUsuarioByUserNameAndPasswordQuery.cs",
-              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Usuario\\Queries\\GetUsuarioByUserNameAndPassword\\GetUsuarioByUserNameAndPasswordQuery.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAA7AAAAAAAAAA==",
+              "Title": "DeleteClienteCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\DeleteClienteCommand.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\DeleteClienteCommand.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\DeleteClienteCommand.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Cliente\\Commands\\DeleteCliente\\DeleteClienteCommand.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T23:54:38.799Z",
+              "WhenOpened": "2025-09-13T00:22:14.754Z",
               "EditorCaption": ""
             },
             {
@@ -70,9 +70,9 @@
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
               "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
               "RelativeToolTip": "Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T23:53:00.513Z",
+              "WhenOpened": "2025-09-13T00:20:52.623Z",
               "EditorCaption": ""
             }
           ]
