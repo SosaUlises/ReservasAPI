@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataBase\Cliente\Queries\" />
     <Folder Include="DataBase\Reserva\Commands\" />
     <Folder Include="DataBase\Reserva\Queries\" />
   </ItemGroup>

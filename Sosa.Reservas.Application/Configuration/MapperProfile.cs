@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
+using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
+using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
@@ -26,6 +28,9 @@ namespace Sosa.Reservas.Application.Configuration
             #region Cliente
             CreateMap<ClienteEntity, CreateClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, UpdateClienteModel>().ReverseMap();
+            CreateMap<ClienteEntity, GetAllUsuarioModel>().ReverseMap();
+            CreateMap<ClienteEntity, GetClienteByIdModel>().ReverseMap();
+            CreateMap<ClienteEntity, GetClienteByDniModel>().ReverseMap();
 
 
             #endregion

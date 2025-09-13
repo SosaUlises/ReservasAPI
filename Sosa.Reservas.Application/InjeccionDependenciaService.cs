@@ -4,6 +4,9 @@ using Sosa.Reservas.Application.Configuration;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.DeleteCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
+using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
+using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
+using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
@@ -35,7 +38,9 @@ namespace Sosa.Reservas.Application
             services.AddTransient<ICreateClienteCommand, CreateClienteCommand>();
             services.AddTransient<IUpdateClienteCommand, UpdateClienteCommand>();
             services.AddTransient<IDeleteClienteCommand, DeleteClienteCommand>();
-
+            services.AddTransient<IGetAllClienteQuery, GetAllClienteQuery>();
+            services.AddTransient<IGetClienteByIdQuery, GetClienteByIdQuery>();
+            services.AddTransient<IGetClienteByDniQuery, GetClienteByDniQuery>();
             #endregion
 
 
