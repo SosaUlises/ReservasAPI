@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Sosa.Reservas.Persistence.Configuration
     {
         public ReservaConfiguration(EntityTypeBuilder<ReservaEntity> entityBuilder)
         {
+            entityBuilder.ToTable("Reserva");
             entityBuilder.HasKey(x => x.ReservaId);
             entityBuilder.Property(x => x.CodigoReserva).IsRequired();
             entityBuilder.Property(x=>x.TipoReserva).IsRequired();

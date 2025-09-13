@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sosa.Reservas.External")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b7fc07b0b9959dbf3fa57ccf436baac6c9f71d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+170cb38278c71fe8db6fb35625fb39af762cccef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sosa.Reservas.External")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sosa.Reservas.External")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Sosa.Reservas.Persistence.Configuration
     {
         public UsuarioConfiguration(EntityTypeBuilder<UsuarioEntity> entityBuilder)
         {
+            entityBuilder.ToTable("Usuario");
             entityBuilder.HasKey(x => x.UserId);
             entityBuilder.Property(x=> x.Nombre).IsRequired();
             entityBuilder.Property(x => x.Apellido).IsRequired();

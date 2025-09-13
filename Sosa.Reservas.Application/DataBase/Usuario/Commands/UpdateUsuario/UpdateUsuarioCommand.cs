@@ -19,7 +19,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario
             _mapper = mapper;
         }
 
-        public async Task<UpdateUsuarioModel> Excute(UpdateUsuarioModel model)
+        public async Task<UpdateUsuarioModel> Execute(UpdateUsuarioModel model)
         {
             var entity = _mapper.Map<UsuarioEntity>(model);
             _dataBaseService.Usuarios.Update(entity);

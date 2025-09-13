@@ -8,6 +8,6 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario
 {
     public interface IUpdateUsuarioCommand
     {
-        Task<UpdateUsuarioModel> Excute(UpdateUsuarioModel model);
+        Task<UpdateUsuarioModel> Execute(UpdateUsuarioModel model);
     }
 }
