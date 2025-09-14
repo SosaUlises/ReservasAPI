@@ -1,5 +1,95 @@
 [
   {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Create",
+    "RelativePath": "api/v1/cliente/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente.CreateClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/cliente/delete/{clienteId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/cliente/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetByDni",
+    "RelativePath": "api/v1/cliente/getbyDni/{clienteDni}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteDni",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/cliente/getbyId/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Update",
+    "RelativePath": "api/v1/cliente/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente.UpdateClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
     "Method": "Create",
     "RelativePath": "api/v1/usuario/create",

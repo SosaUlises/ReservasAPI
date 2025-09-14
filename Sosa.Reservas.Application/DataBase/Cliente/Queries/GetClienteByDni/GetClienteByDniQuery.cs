@@ -16,7 +16,7 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni
 
         public async Task<GetClienteByDniModel> Execute(string dni)
         {
-            var entity = _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.DNI == dni);
+            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.DNI == dni);
 
             return _mapper.Map<GetClienteByDniModel>(entity);
         }
