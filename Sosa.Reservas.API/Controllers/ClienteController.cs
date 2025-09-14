@@ -31,7 +31,7 @@ namespace Sosa.Reservas.API.Controllers
             if (!validate.IsValid)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
-                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
             }
 
             var data = await createClienteCommand.Execute(model);
@@ -51,7 +51,7 @@ namespace Sosa.Reservas.API.Controllers
             if (!validate.IsValid)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
-                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+                      ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
             }
 
             var data = await updateClienteCommand.Execute(model);

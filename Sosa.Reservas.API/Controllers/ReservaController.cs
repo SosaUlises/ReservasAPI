@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
@@ -17,8 +18,17 @@ namespace Sosa.Reservas.API.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create(
             [FromBody] CreateReservaModel model,
-            [FromServices] ICreateReservaCommand createReservaCommand)
+            [FromServices] ICreateReservaCommand createReservaCommand,
+            [FromServices] IValidator<CreateReservaModel> validator)
         {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
+
             var data = await createReservaCommand.Execute(model);
 
             return StatusCode(StatusCodes.Status201Created,
