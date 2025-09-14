@@ -19,6 +19,7 @@ using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
+using Sosa.Reservas.Application.Validators.Cliente;
 using Sosa.Reservas.Application.Validators.Usuario;
 
 namespace Sosa.Reservas.Application
@@ -62,6 +63,9 @@ namespace Sosa.Reservas.Application
             services.AddScoped<IValidator<UpdateUsuarioModel>, UpdateUsuarioValidator>();
             services.AddScoped<IValidator<UpdateUsuarioPasswordModel>, UpdateUsuarioPasswordValidator>();
             services.AddScoped<IValidator<(string,string)>, GetUsuarioByUserNameAndPasswordValidator>();
+
+            services.AddScoped<IValidator<CreateClienteModel>, CreateClienteValidator>();
+            services.AddScoped<IValidator<UpdateClienteModel>, UpdateClienteValidator>();
             #endregion
             return services;
         }

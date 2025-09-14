@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sosa.Reservas.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1533913f86602f9987972f803f81147f6f8fd5cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3cb57d0cf69b77c681b6e70502fec1749e096cc6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sosa.Reservas.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sosa.Reservas.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

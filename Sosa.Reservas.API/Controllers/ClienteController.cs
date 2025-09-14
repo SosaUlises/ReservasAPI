@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.DeleteCliente;
@@ -8,6 +9,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sosa.Reservas.API.Controllers
 {
@@ -20,9 +22,18 @@ namespace Sosa.Reservas.API.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create(
             [FromBody] CreateClienteModel model,
-            [FromServices] ICreateClienteCommand createClienteCommand
+            [FromServices] ICreateClienteCommand createClienteCommand,
+            [FromServices] IValidator<CreateClienteModel> validator
             )
         {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+            }
+
             var data = await createClienteCommand.Execute(model);
             return StatusCode(StatusCodes.Status201Created, 
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
@@ -31,9 +42,18 @@ namespace Sosa.Reservas.API.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> Update(
             [FromBody] UpdateClienteModel model,
-            [FromServices] IUpdateClienteCommand updateClienteCommand
+            [FromServices] IUpdateClienteCommand updateClienteCommand,
+            [FromServices] IValidator<UpdateClienteModel> validator
             )
         {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+            }
+
             var data = await updateClienteCommand.Execute(model);
             return StatusCode(StatusCodes.Status200OK, 
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
