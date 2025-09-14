@@ -1,20 +1,113 @@
 [
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_0",
-    "RelativePath": "testService",
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "Create",
+    "RelativePath": "api/v1/usuario/create",
     "HttpMethod": "POST",
-    "IsController": false,
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario.CreateUsuarioModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/usuario/delete/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/usuario/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/usuario/getById/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo.GetReservasByTipoModel, Sosa.Reservas.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "application/json"
-        ],
-        "StatusCode": 200
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "GetByUserNamePassword",
+    "RelativePath": "api/v1/usuario/getByUserNamePassword/{userName}/{password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "Update",
+    "RelativePath": "api/v1/usuario/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario.UpdateUsuarioModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "UpdatePassword",
+    "RelativePath": "api/v1/usuario/update-password",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword.UpdateUsuarioPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

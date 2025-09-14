@@ -1,13 +1,6 @@
 using Sosa.Reservas.API;
 using Sosa.Reservas.Application;
-using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
-using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Common;
-using Sosa.Reservas.Domain.Enums;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
 
@@ -25,6 +18,8 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration);
 
+builder.Services.AddControllers();
+
 
 var app = builder.Build();
 
@@ -38,10 +33,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapPost("/testService", async (IGetReservasByTipoQuery service) =>
-{
-
-    return await service.Execute("Documentacion");
-});
-
+app.MapControllers();
 app.Run();

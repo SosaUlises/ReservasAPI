@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Sosa.Reservas.Application\Sosa.Reservas.Application.csproj" />
     <ProjectReference Include="..\Sosa.Reservas.Common\Sosa.Reservas.Common.csproj" />
     <ProjectReference Include="..\Sosa.Reservas.External\Sosa.Reservas.External.csproj" />
