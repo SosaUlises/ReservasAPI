@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Sosa.Reservas.Application.Configuration;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
@@ -18,6 +19,7 @@ using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
+using Sosa.Reservas.Application.Validators.Usuario;
 
 namespace Sosa.Reservas.Application
 {
@@ -54,6 +56,13 @@ namespace Sosa.Reservas.Application
             services.AddTransient<IGetReservasByTipoQuery, GetReservasByTipoQuery>();
             #endregion
 
+            #region Validators
+
+            services.AddScoped<IValidator<CreateUsuarioModel>, CreateUsuarioValidator>();
+            services.AddScoped<IValidator<UpdateUsuarioModel>, UpdateUsuarioValidator>();
+            services.AddScoped<IValidator<UpdateUsuarioPasswordModel>, UpdateUsuarioPasswordValidator>();
+            services.AddScoped<IValidator<(string,string)>, GetUsuarioByUserNameAndPasswordValidator>();
+            #endregion
             return services;
         }
     }

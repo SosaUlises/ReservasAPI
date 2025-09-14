@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
@@ -17,22 +17,42 @@ namespace Sosa.Reservas.API.Controllers
     [TypeFilter(typeof(ExceptionManager))]
     public class UsuarioController : ControllerBase
     {
- 
+
         [HttpPost("create")]
         public async Task<IActionResult> Create(
             [FromBody] CreateUsuarioModel model,
-            [FromServices] ICreateUsuarioCommand createUsuarioCommand)
+            [FromServices] ICreateUsuarioCommand createUsuarioCommand,
+            [FromServices] IValidator<CreateUsuarioModel> validator)
         {
+
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
+
             var data = await createUsuarioCommand.Execute(model);
-            return StatusCode(StatusCodes.Status201Created, 
+            return StatusCode(StatusCodes.Status201Created,
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
         }
 
         [HttpPut("update")]
         public async Task<IActionResult> Update(
             [FromBody] UpdateUsuarioModel model,
-            [FromServices] IUpdateUsuarioCommand updateUsuarioCommand)
+            [FromServices] IUpdateUsuarioCommand updateUsuarioCommand,
+            [FromServices] IValidator<UpdateUsuarioModel> validator)
         {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
+
+
             var data = await updateUsuarioCommand.Execute(model);
             return StatusCode(StatusCodes.Status200OK,
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
@@ -41,8 +61,17 @@ namespace Sosa.Reservas.API.Controllers
         [HttpPut("update-password")]
         public async Task<IActionResult> UpdatePassword(
          [FromBody] UpdateUsuarioPasswordModel model,
-         [FromServices] IUpdateUsuarioPasswordCommand updateUsuarioPasswordCommand)
+         [FromServices] IUpdateUsuarioPasswordCommand updateUsuarioPasswordCommand,
+         [FromServices] IValidator<UpdateUsuarioPasswordModel> validator)
         {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
+
             var data = await updateUsuarioPasswordCommand.Execute(model);
             return StatusCode(StatusCodes.Status200OK,
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
@@ -57,26 +86,26 @@ namespace Sosa.Reservas.API.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest,
                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
             }
-       
-                var data = await deleteUsuarioCommand.Execute(userId);
 
-                if (!data)
-                {
-                    return StatusCode(StatusCodes.Status404NotFound,
-                        ResponseApiService.Response(StatusCodes.Status404NotFound, data));
-                }
-                else
-                {
-                    return StatusCode(StatusCodes.Status200OK,
-                       ResponseApiService.Response(StatusCodes.Status200OK, data));
-                }
+            var data = await deleteUsuarioCommand.Execute(userId);
+
+            if (!data)
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+                    ResponseApiService.Response(StatusCodes.Status404NotFound, data));
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status200OK,
+                   ResponseApiService.Response(StatusCodes.Status200OK, data));
+            }
         }
 
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll([FromServices] IGetAllUsuarioQuery getAllUsuarioQuery)
         {
             var data = await getAllUsuarioQuery.Execute();
-            if(data == null || data.Count == 0)
+            if (data == null || data.Count == 0)
             {
                 return StatusCode(StatusCodes.Status404NotFound,
                         ResponseApiService.Response(StatusCodes.Status404NotFound, data));
@@ -89,7 +118,7 @@ namespace Sosa.Reservas.API.Controllers
         [HttpGet("getById/{userId}")]
         public async Task<IActionResult> GetById(int userId, [FromServices] IGetUsuarioByIdQuery getUsuarioByIdQuery)
         {
-           
+
             if (userId == 0)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
@@ -109,8 +138,18 @@ namespace Sosa.Reservas.API.Controllers
 
 
         [HttpGet("getByUserNamePassword/{userName}/{password}")]
-        public async Task<IActionResult> GetByUserNamePassword(string userName, string password, [FromServices] IGetUsuarioByUserNameAndPasswordQuery getUsuarioByUserNameAndPasswordQuery)
+        public async Task<IActionResult> GetByUserNamePassword(string userName, string password,
+            [FromServices] IGetUsuarioByUserNameAndPasswordQuery getUsuarioByUserNameAndPasswordQuery,
+            [FromServices] IValidator<(string, string)> validator)
         {
+
+            var validate = await validator.ValidateAsync((userName, password));
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
 
             if (userName == null || password == null)
             {
