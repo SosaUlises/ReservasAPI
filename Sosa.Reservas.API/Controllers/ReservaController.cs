@@ -1,15 +1,95 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo;
+using Sosa.Reservas.Application.Exception;
+using Sosa.Reservas.Application.Features;
 
 namespace Sosa.Reservas.API.Controllers
 {
     [Route("api/v1/reserva")]
     [ApiController]
+    [TypeFilter(typeof(ExceptionManager))]
     public class ReservaController : ControllerBase
     {
-        public ReservaController()
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(
+            [FromBody] CreateReservaModel model,
+            [FromServices] ICreateReservaCommand createReservaCommand)
         {
-            
+            var data = await createReservaCommand.Execute(model);
+
+            return StatusCode(StatusCodes.Status201Created,
+                ResponseApiService.Response(StatusCodes.Status201Created,data));
         }
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAll(
+            [FromServices] IGetAllReservasQuery getAllReservasQuery)
+        {
+            var data = await getAllReservasQuery.Execute();
+
+            if(data.Count == 0)
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+                ResponseApiService.Response(StatusCodes.Status404NotFound, data));
+            }
+
+            return StatusCode(StatusCodes.Status200OK,
+                ResponseApiService.Response(StatusCodes.Status200OK, data));
+        }
+
+        [HttpGet("getByDni/{dni}")]
+        public async Task<IActionResult> GetByDni(
+            string dni,
+           [FromServices] IGetReservasByDniQuery getReservasByDniQuery)
+        {
+            if(dni == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                       ResponseApiService.Response(StatusCodes.Status400BadRequest));
+            }
+
+            var data = await getReservasByDniQuery.Execute(dni);
+
+            if(data == null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+                ResponseApiService.Response(StatusCodes.Status404NotFound));
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status200OK,
+                ResponseApiService.Response(StatusCodes.Status200OK, data));
+            }
+        }
+
+        [HttpGet("getByTipo/{tipo}")]
+        public async Task<IActionResult> GetByTipo(
+            string tipo,
+            [FromServices] IGetReservasByTipoQuery getReservasByTipoQuery)
+        {
+            if(tipo == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+            }
+
+            var data = await getReservasByTipoQuery.Execute(tipo);
+
+            if(data == null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+                ResponseApiService.Response(StatusCodes.Status404NotFound));
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status200OK,
+                ResponseApiService.Response(StatusCodes.Status200OK, data));
+            }
+        }
+        
     }
 }

@@ -44,7 +44,7 @@
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
     "Method": "GetByDni",
-    "RelativePath": "api/v1/cliente/getbyDni/{clienteDni}",
+    "RelativePath": "api/v1/cliente/getByDni/{clienteDni}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -60,7 +60,7 @@
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
     "Method": "GetById",
-    "RelativePath": "api/v1/cliente/getbyId/{clienteId}",
+    "RelativePath": "api/v1/cliente/getById/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -85,6 +85,64 @@
         "Name": "model",
         "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente.UpdateClienteModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "Create",
+    "RelativePath": "api/v1/reserva/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva.CreateReservaModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/reserva/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "GetByDni",
+    "RelativePath": "api/v1/reserva/getByDni",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dni",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "GetByTipo",
+    "RelativePath": "api/v1/reserva/getByTipo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tipo",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
