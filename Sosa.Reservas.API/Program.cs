@@ -3,14 +3,17 @@ using Sosa.Reservas.Application;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de los servicios del contenedor
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-// Inyeccion de dependencias
+// Inyección de dependencias
 builder.Services
     .AddWebApi()
     .AddCommon()
@@ -18,20 +21,23 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration);
 
-builder.Services.AddControllers();
 
+// Configuración de la autorización
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuración del pipeline de solicitudes HTTP
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+app.UseHttpsRedirection(); 
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapControllers();
 app.Run();

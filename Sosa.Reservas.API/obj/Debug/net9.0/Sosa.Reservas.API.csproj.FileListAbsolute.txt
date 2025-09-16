@@ -178,3 +178,4 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Flu
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\SendGrid.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\StarkbankEcdsa.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

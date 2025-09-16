@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
@@ -8,10 +9,12 @@ using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
 using Sosa.Reservas.Application.Exception;
+using Sosa.Reservas.Application.External.GetTokenJWT;
 using Sosa.Reservas.Application.Features;
 
 namespace Sosa.Reservas.API.Controllers
 {
+    [Authorize]
     [Route("api/v1/usuario")]
     [ApiController]
     [TypeFilter(typeof(ExceptionManager))]
@@ -136,11 +139,12 @@ namespace Sosa.Reservas.API.Controllers
                        ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
-
+        [AllowAnonymous]
         [HttpGet("getByUserNamePassword/{userName}/{password}")]
         public async Task<IActionResult> GetByUserNamePassword(string userName, string password,
             [FromServices] IGetUsuarioByUserNameAndPasswordQuery getUsuarioByUserNameAndPasswordQuery,
-            [FromServices] IValidator<(string, string)> validator)
+            [FromServices] IValidator<(string, string)> validator,
+            [FromServices] IGetTokenJWTService getTokenJWTService)
         {
 
             var validate = await validator.ValidateAsync((userName, password));
@@ -164,6 +168,9 @@ namespace Sosa.Reservas.API.Controllers
                 return StatusCode(StatusCodes.Status404NotFound,
                        ResponseApiService.Response(StatusCodes.Status404NotFound));
             }
+
+            data.Token = getTokenJWTService.Execute(data.UserId.ToString());
+
             return StatusCode(StatusCodes.Status200OK,
                        ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
