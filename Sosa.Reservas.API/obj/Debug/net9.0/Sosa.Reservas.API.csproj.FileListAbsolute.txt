@@ -174,3 +174,7 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net9.0\Sos
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net9.0\Sosa.Reservas.API.genruntimeconfig.cache
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net9.0\ref\Sosa.Reservas.API.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net9.0\Sosa.Reservas.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\SendGrid.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\StarkbankEcdsa.dll

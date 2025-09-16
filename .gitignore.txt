@@ -1,0 +1,33 @@
+# Archivos de Visual Studio
+.vs/
+*.sln.ide/
+*.suo
+*.user
+*.bak
+*.vcproj.filters
+*.vshost.exe
+*.vshost.exe.config
+*.webinfo
+*.cache
+.vs.csproj.user
+
+# Carpetas de compilación
+bin/
+obj/
+publish/
+
+# Paquetes NuGet
+*.nupkg
+.nupkg/
+packages/
+
+# Archivos de configuración sensibles
+appsettings.Development.json
+appsettings.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Otros archivos
+temp/
+logs/
+Thumbs.db

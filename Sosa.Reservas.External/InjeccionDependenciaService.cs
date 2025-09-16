@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sosa.Reservas.Application.DataBase;
+using Sosa.Reservas.Application.External.SendGridEmail;
+using Sosa.Reservas.External.SendGridEmail;
 using Sosa.Reservas.Persistence.DataBase;
 
 namespace Sosa.Reservas.External
@@ -17,6 +19,7 @@ namespace Sosa.Reservas.External
 
             // Inyecciones de dependencia servicios
             services.AddScoped<IDataBaseService, DataBaseService>();
+            services.AddSingleton<ISendGridEmailService, SendGridEmailService>();
 
 
             return services;
