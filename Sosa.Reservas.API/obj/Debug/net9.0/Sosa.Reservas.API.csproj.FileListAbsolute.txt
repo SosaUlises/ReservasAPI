@@ -179,3 +179,7 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\New
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\SendGrid.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\StarkbankEcdsa.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Sosa.Reservas.API.xml
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
