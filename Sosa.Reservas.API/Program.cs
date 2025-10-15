@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Sosa.Reservas.API;
 using Sosa.Reservas.Application;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Sosa.Reservas.Persistence.DataBase;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configuración de los servicios del contenedor
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
 
 // Inyección de dependencias
 builder.Services

@@ -183,3 +183,5 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Sos
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Npgsql.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

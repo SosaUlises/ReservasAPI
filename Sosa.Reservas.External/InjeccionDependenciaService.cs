@@ -18,9 +18,13 @@ namespace Sosa.Reservas.External
         public static IServiceCollection AddExternal(this IServiceCollection services,
             IConfiguration configuration)
         {
-            // Conexion Db
+            // Conexion DB (PostgreSQL)
+
+            var connectionString = configuration.GetConnectionString("SQLConnectionStrings");
+
             services.AddDbContext<DataBaseService>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("SQLConnectionStrings")));
+                options.UseNpgsql(connectionString)
+            );
 
             // Inyecciones de dependencia servicios
             services.AddScoped<IDataBaseService, DataBaseService>();
