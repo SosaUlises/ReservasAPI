@@ -1,13 +1,8 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Sosa.Reservas.API;
 using Sosa.Reservas.Application;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
-using Sosa.Reservas.Persistence.DataBase;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,12 +32,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSwagger();
-app.UseSwaggerUI(options => {
+app.UseSwaggerUI(options =>
+{
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
     options.RoutePrefix = string.Empty;
 });
 
-app.UseHttpsRedirection(); 
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();

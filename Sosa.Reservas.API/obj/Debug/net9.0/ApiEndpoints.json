@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Sosa.Reservas.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/v1/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Login.Queries.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
     "Method": "Create",
     "RelativePath": "api/v1/cliente/create",

@@ -19,6 +19,9 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario
         {
             var entity = _mapper.Map<UsuarioEntity>(model);
 
+            // Hasheo y asignacion de contraseña manualmente
+            entity.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
+
             await _dataBaseService.Usuarios.AddAsync(entity);
             await _dataBaseService.SaveAsync();
             return model;

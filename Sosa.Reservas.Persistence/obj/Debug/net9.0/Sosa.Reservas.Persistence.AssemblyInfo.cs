@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sosa.Reservas.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e135757edc895c0f71477bee79f0bdfb1530867")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+739eb555e985b4ea2bdf67286e2ae3a69f919095")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sosa.Reservas.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sosa.Reservas.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

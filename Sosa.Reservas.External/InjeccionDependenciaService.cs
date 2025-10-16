@@ -28,9 +28,19 @@ namespace Sosa.Reservas.External
 
             // Inyecciones de dependencia servicios
             services.AddScoped<IDataBaseService, DataBaseService>();
-            services.AddSingleton<ISendGridEmailService, SendGridEmailService>(); 
+            services.AddSingleton<ISendGridEmailService, SendGridEmailService>();
             services.AddSingleton<IGetTokenJWTService, GetTokenJWTService>();
 
+
+            // Leemos los valores de JWT en variables para validarlos
+            var jwtIssuer = configuration["Jwt:Issuer"];
+            var jwtAudience = configuration["Jwt:Audience"];
+            var jwtKey = configuration["Jwt:Key"];
+
+            if (string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience) || string.IsNullOrEmpty(jwtKey))
+            {
+                throw new InvalidOperationException("La configuración de JWT (Issuer, Audience, Key) no está completa.");
+            }
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>
@@ -41,10 +51,9 @@ namespace Sosa.Reservas.External
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-
-                        ValidIssuer = configuration["Jwt:Issuer"],
-                        ValidAudience = configuration["Jwt:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
+                        ValidIssuer = jwtIssuer,
+                        ValidAudience = jwtAudience,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
                     };
                 });
 
