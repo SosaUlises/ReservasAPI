@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Sosa.Reservas.Application.DataBase;
 using Sosa.Reservas.Application.External.GetTokenJWT;
 using Sosa.Reservas.Application.External.SendGridEmail;
+using Sosa.Reservas.Domain.Entidades.Usuario;
 using Sosa.Reservas.External.GetTokenJWT;
 using Sosa.Reservas.External.SendGridEmail;
 using Sosa.Reservas.Persistence.DataBase;
@@ -30,6 +32,21 @@ namespace Sosa.Reservas.External
             services.AddScoped<IDataBaseService, DataBaseService>();
             services.AddSingleton<ISendGridEmailService, SendGridEmailService>();
             services.AddSingleton<IGetTokenJWTService, GetTokenJWTService>();
+
+
+            // Identity
+            services.AddIdentity<UsuarioEntity, IdentityRole<int>>(options =>
+            {
+                // Configuración de Contraseña
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+            })
+                .AddEntityFrameworkStores<DataBaseService>() 
+                .AddDefaultTokenProviders();
+
 
 
             // Leemos los valores de JWT en variables para validarlos

@@ -14,11 +14,9 @@ namespace Sosa.Reservas.Persistence.Configuration
         public UsuarioConfiguration(EntityTypeBuilder<UsuarioEntity> entityBuilder)
         {
             entityBuilder.ToTable("Usuario");
-            entityBuilder.HasKey(x => x.UserId);
             entityBuilder.Property(x=> x.Nombre).IsRequired();
             entityBuilder.Property(x => x.Apellido).IsRequired();
             entityBuilder.Property(x => x.UserName).IsRequired();
-            entityBuilder.Property(x => x.Password).IsRequired();
 
             entityBuilder.HasMany(x => x.Reservas)
                 .WithOne(x => x.Usuario)

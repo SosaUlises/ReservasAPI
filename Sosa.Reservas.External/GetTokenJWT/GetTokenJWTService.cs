@@ -16,7 +16,7 @@ namespace Sosa.Reservas.External.GetTokenJWT
             _configuration = configuration;
         }
 
-        public string Execute(string id) 
+        public string Execute(string id, string role)
         {
             var jwtKey = _configuration["Jwt:Key"];
             var jwtIssuer = _configuration["Jwt:Issuer"];
@@ -28,15 +28,21 @@ namespace Sosa.Reservas.External.GetTokenJWT
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-
             var signinKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, id)
+            };
+
+            if (!string.IsNullOrEmpty(role))
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                new Claim(ClaimTypes.NameIdentifier, id)
-                }),
+                Subject = new ClaimsIdentity(claims), 
                 Expires = DateTime.UtcNow.AddMinutes(15),
                 SigningCredentials = new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256Signature),
                 Issuer = jwtIssuer,

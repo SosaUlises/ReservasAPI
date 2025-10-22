@@ -21,7 +21,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById
 
         public async Task<GetUsuarioByIdModel> Execute(int id)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.UserId == id);
+            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
 
             return _mapper.Map<GetUsuarioByIdModel>(entity);
            

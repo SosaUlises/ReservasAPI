@@ -3,6 +3,7 @@ using Sosa.Reservas.Application;
 using Sosa.Reservas.Common;
 using Sosa.Reservas.External;
 using Sosa.Reservas.Persistence;
+using Sosa.Reservas.Persistence.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+await IdentityDataSeeder.SeedRolesAsync(app);
 
 app.UseSwagger();
 app.UseSwaggerUI(options =>

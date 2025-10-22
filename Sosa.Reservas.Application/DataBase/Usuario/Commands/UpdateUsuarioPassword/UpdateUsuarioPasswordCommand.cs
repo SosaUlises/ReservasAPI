@@ -17,7 +17,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassw
 
         public async Task<bool> Execute(UpdateUsuarioPasswordModel model)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.UserId == model.UserId);
+            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.Id == model.UserId);
 
             if (entity == null)
             {
@@ -26,7 +26,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassw
             else
             {
 
-               entity.Password = model.Password;
+               entity.PasswordHash = model.Password;
 
                return await _dataBaseService.SaveAsync();
             }

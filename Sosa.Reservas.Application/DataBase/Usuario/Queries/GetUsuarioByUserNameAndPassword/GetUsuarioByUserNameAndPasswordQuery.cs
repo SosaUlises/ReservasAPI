@@ -21,7 +21,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNam
 
         public async Task<GetUsuarioByUserNameAndPasswordModel> Execute(string userName, string password)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.UserName == userName && x.Password == password);
+            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.UserName == userName && x.PasswordHash == password);
 
             return _mapper.Map<GetUsuarioByUserNameAndPasswordModel>(entity);
         }

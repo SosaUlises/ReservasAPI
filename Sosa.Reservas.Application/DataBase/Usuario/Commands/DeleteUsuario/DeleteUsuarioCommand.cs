@@ -19,7 +19,7 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario
 
         public async Task<bool> Execute(int userId)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(e => e.UserId == userId);
+            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(e => e.Id == userId);
 
             if (entity == null)
             {

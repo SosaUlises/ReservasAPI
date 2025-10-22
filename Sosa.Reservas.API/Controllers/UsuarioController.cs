@@ -21,26 +21,6 @@ namespace Sosa.Reservas.API.Controllers
     public class UsuarioController : ControllerBase
     {
 
-        [HttpPost("create")]
-        public async Task<IActionResult> Create(
-            [FromBody] CreateUsuarioModel model,
-            [FromServices] ICreateUsuarioCommand createUsuarioCommand,
-            [FromServices] IValidator<CreateUsuarioModel> validator)
-        {
-
-            var validate = await validator.ValidateAsync(model);
-
-            if (!validate.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
-            }
-
-            var data = await createUsuarioCommand.Execute(model);
-            return StatusCode(StatusCodes.Status201Created,
-                ResponseApiService.Response(StatusCodes.Status201Created, data));
-        }
-
         [HttpPut("update")]
         public async Task<IActionResult> Update(
             [FromBody] UpdateUsuarioModel model,
@@ -139,41 +119,7 @@ namespace Sosa.Reservas.API.Controllers
                        ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
-        [AllowAnonymous]
-        [HttpGet("getByUserNamePassword/{userName}/{password}")]
-        public async Task<IActionResult> GetByUserNamePassword(string userName, string password,
-            [FromServices] IGetUsuarioByUserNameAndPasswordQuery getUsuarioByUserNameAndPasswordQuery,
-            [FromServices] IValidator<(string, string)> validator,
-            [FromServices] IGetTokenJWTService getTokenJWTService)
-        {
 
-            var validate = await validator.ValidateAsync((userName, password));
-
-            if (!validate.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
-            }
-
-            if (userName == null || password == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                        ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-
-            var data = await getUsuarioByUserNameAndPasswordQuery.Execute(userName, password);
-
-            if (data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                       ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-
-            data.Token = getTokenJWTService.Execute(data.UserId.ToString());
-
-            return StatusCode(StatusCodes.Status200OK,
-                       ResponseApiService.Response(StatusCodes.Status200OK, data));
-        }
 
     }
 }

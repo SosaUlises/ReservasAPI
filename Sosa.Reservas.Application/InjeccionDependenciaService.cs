@@ -35,7 +35,6 @@ namespace Sosa.Reservas.Application
             services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
             #region Usuarios
-            services.AddTransient<ICreateUsuarioCommand, CreateUsuarioCommand>();
             services.AddTransient<IUpdateUsuarioCommand, UpdateUsuarioCommand>();
             services.AddTransient<IDeleteUsuarioCommand, DeleteUsuarioCommand>();
             services.AddTransient<IUpdateUsuarioPasswordCommand, UpdateUsuarioPasswordCommand>();
@@ -75,9 +74,6 @@ namespace Sosa.Reservas.Application
             services.AddScoped<IValidator<LoginModel>, LoginValidator>();
             #endregion
 
-            #region Login
-            services.AddScoped<ILoginQuery, LoginQuery>();
-            #endregion
             return services;
         }
     }

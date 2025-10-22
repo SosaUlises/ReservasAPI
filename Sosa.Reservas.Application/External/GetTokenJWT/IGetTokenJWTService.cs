@@ -2,6 +2,6 @@
 {
     public interface IGetTokenJWTService
     {
-        public string Execute(string id);
+        public string Execute(string id, string role);
     }
 }

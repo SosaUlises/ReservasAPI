@@ -1,10 +1,13 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Login.Queries;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario; 
 using Sosa.Reservas.Application.Exception;
-using Sosa.Reservas.Application.Features; 
+using Sosa.Reservas.Application.External.GetTokenJWT;
+using Sosa.Reservas.Application.Features;
+using Sosa.Reservas.Domain.Entidades.Usuario;
 
 
 namespace Sosa.Reservas.API.Controllers
@@ -14,32 +17,69 @@ namespace Sosa.Reservas.API.Controllers
     [TypeFilter(typeof(ExceptionManager))] 
     public class AuthController : ControllerBase
     {
+        private readonly UserManager<UsuarioEntity> _userManager;
+        private readonly SignInManager<UsuarioEntity> _signInManager;
+        private readonly IGetTokenJWTService _getTokenJwtService;
 
-        [AllowAnonymous] 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(
-            [FromBody] LoginModel model,
-            [FromServices] ILoginQuery loginQuery,
-            [FromServices] IValidator<LoginModel> validator)
+        public AuthController(
+            UserManager<UsuarioEntity> userManager,
+            SignInManager<UsuarioEntity> signInManager,
+            IGetTokenJWTService getTokenJwtService)
         {
-            var validate = await validator.ValidateAsync(model);
-            if (!validate.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                    ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
-            }
-
-            var token = await loginQuery.Execute(model);
-
-            if (string.IsNullOrEmpty(token))
-            {
-                return StatusCode(StatusCodes.Status401Unauthorized,
-                    ResponseApiService.Response(StatusCodes.Status401Unauthorized, null, "Usuario o contraseña inválidos."));
-            }
-
-            return StatusCode(StatusCodes.Status200OK,
-                ResponseApiService.Response(StatusCodes.Status200OK, new { token }));
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _getTokenJwtService = getTokenJwtService;
         }
 
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] CreateUsuarioModel model) 
+        {
+            var user = new UsuarioEntity
+            {
+                UserName = model.UserName,
+                Email = model.Email, 
+                Nombre = model.Nombre,
+                Apellido = model.Apellido
+            };
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return BadRequest(ResponseApiService.Response(400, result.Errors));
+            }
+
+            await _userManager.AddToRoleAsync(user, "Cliente");
+
+            return StatusCode(201, ResponseApiService.Response(201, new { UserId = user.Id }));
+        }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            if (user == null)
+            {
+                return Unauthorized(ResponseApiService.Response(401, null, "Usuario o contraseña inválidos."));
+            }
+
+            // Verificar la contraseña
+            // CheckPasswordSignInAsync compara el hash
+            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+
+            if (!result.Succeeded)
+            {
+                return Unauthorized(ResponseApiService.Response(401, null, "Usuario o contraseña inválidos."));
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var token = _getTokenJwtService.Execute(user.Id.ToString(), roles.FirstOrDefault());
+
+            return Ok(ResponseApiService.Response(200, new { token }));
+        }
     }
 }
