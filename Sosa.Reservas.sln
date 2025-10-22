@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sosa.Reservas.External", "Sosa.Reservas.External\Sosa.Reservas.External.csproj", "{F0C3A422-9B5D-44F5-A7D1-CF4F626FE280}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sosa.Reservas.Common", "Sosa.Reservas.Common\Sosa.Reservas.Common.csproj", "{4E8BD764-90CB-4938-883D-CE99F723F2B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C1534B30-33B8-4AD3-BCBB-AAF81B23CEB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sosa.Reservas.Application.Tests", "Sosa.Reservas.Application.Tests\Sosa.Reservas.Application.Tests.csproj", "{B2D50A46-02F2-462C-89B9-A1A86295B144}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{4E8BD764-90CB-4938-883D-CE99F723F2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E8BD764-90CB-4938-883D-CE99F723F2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E8BD764-90CB-4938-883D-CE99F723F2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2D50A46-02F2-462C-89B9-A1A86295B144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D50A46-02F2-462C-89B9-A1A86295B144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D50A46-02F2-462C-89B9-A1A86295B144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D50A46-02F2-462C-89B9-A1A86295B144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{0B57EA12-CF9C-4D20-99F2-304239997438} = {CF56F4D2-E517-4B91-9E11-B55760EB3D47}
 		{F0C3A422-9B5D-44F5-A7D1-CF4F626FE280} = {CF56F4D2-E517-4B91-9E11-B55760EB3D47}
 		{4E8BD764-90CB-4938-883D-CE99F723F2B1} = {8DE1CD4D-B9AF-4D4D-91BB-F058A629C625}
+		{B2D50A46-02F2-462C-89B9-A1A86295B144} = {C1534B30-33B8-4AD3-BCBB-AAF81B23CEB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B6611B4-9B75-4961-B10E-AB831AB1E22F}
