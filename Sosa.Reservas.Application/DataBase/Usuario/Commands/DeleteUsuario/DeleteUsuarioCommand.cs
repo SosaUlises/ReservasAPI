@@ -1,34 +1,30 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
+using Sosa.Reservas.Domain.Entidades.Usuario;
 
 namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario
 {
     public class DeleteUsuarioCommand : IDeleteUsuarioCommand
     {
-        private readonly IDataBaseService _dataBaseService;
 
-        public DeleteUsuarioCommand(IDataBaseService dataBaseService)
+        private readonly UserManager<UsuarioEntity> _userManager;
+
+        public DeleteUsuarioCommand(UserManager<UsuarioEntity> userManager)
         {
-            _dataBaseService = dataBaseService;
+            _userManager = userManager;
         }
 
         public async Task<bool> Execute(int userId)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(e => e.Id == userId);
+            var user = await _userManager.FindByIdAsync(userId.ToString());
 
-            if (entity == null)
+            if (user == null)
             {
                 return false;
             }
             else
             {
-                _dataBaseService.Usuarios.Remove(entity);
-                return await _dataBaseService.SaveAsync();
+                var result = await _userManager.DeleteAsync(user);
+                return result.Succeeded;
             }
         }
     }

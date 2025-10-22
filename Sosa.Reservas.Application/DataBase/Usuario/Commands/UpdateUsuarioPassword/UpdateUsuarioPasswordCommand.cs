@@ -1,35 +1,36 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
+using Sosa.Reservas.Domain.Entidades.Usuario;
 
 namespace Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword
 {
     public class UpdateUsuarioPasswordCommand : IUpdateUsuarioPasswordCommand
     {
-        private readonly IDataBaseService _dataBaseService;
-        public UpdateUsuarioPasswordCommand(IDataBaseService dataBaseService)
+        private readonly UserManager<UsuarioEntity> _userManager;
+
+        public UpdateUsuarioPasswordCommand(UserManager<UsuarioEntity> userManager)
         {
-            _dataBaseService = dataBaseService;
+            _userManager = userManager;
         }
 
         public async Task<bool> Execute(UpdateUsuarioPasswordModel model)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.Id == model.UserId);
+            var user = await _userManager.FindByIdAsync(model.UserId.ToString());
 
-            if (entity == null)
+            if (user == null)
             {
                 return false;
             }
-            else
+
+            var removeResult = await _userManager.RemovePasswordAsync(user);
+
+            if (!removeResult.Succeeded)
             {
-
-               entity.PasswordHash = model.Password;
-
-               return await _dataBaseService.SaveAsync();
+                return false;
             }
+
+            var addResult = await _userManager.AddPasswordAsync(user, model.Password);
+
+            return addResult.Succeeded;
         }
     }
 }
