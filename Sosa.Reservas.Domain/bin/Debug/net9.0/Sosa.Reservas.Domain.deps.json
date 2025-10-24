@@ -17,7 +17,10 @@
           "Microsoft.EntityFrameworkCore.Design": "9.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.8",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "Sosa.Reservas.Common": "1.0.0",
+          "X.PagedList": "10.5.9",
+          "X.PagedList.EF": "10.5.9"
         },
         "runtime": {
           "Sosa.Reservas.Domain.dll": {}
@@ -1102,6 +1105,47 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "X.PagedList/10.5.9": {
+        "runtime": {
+          "lib/net8.0/X.PagedList.dll": {
+            "assemblyVersion": "10.5.9.0",
+            "fileVersion": "10.5.9.0"
+          }
+        }
+      },
+      "X.PagedList.EF/10.5.9": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.8",
+          "X.PagedList": "10.5.9"
+        },
+        "runtime": {
+          "lib/net8.0/X.PagedList.EF.dll": {
+            "assemblyVersion": "10.5.9.0",
+            "fileVersion": "10.5.9.0"
+          }
+        }
+      },
+      "Sosa.Reservas.Common/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "BCrypt.Net-Next": "4.0.3",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.10",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.8",
+          "Microsoft.EntityFrameworkCore": "9.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.8",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "X.PagedList": "10.5.9",
+          "X.PagedList.EF": "10.5.9"
+        },
+        "runtime": {
+          "Sosa.Reservas.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1712,6 +1756,25 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "X.PagedList/10.5.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iwrGkIQn/puv4kNe23GVSPtpvKf5bl1aSbhIoWAhrl5LnvEmTwkGftlxSEFlgInVmMx1cb8Q7ivJPqxJtw7TAg==",
+      "path": "x.pagedlist/10.5.9",
+      "hashPath": "x.pagedlist.10.5.9.nupkg.sha512"
+    },
+    "X.PagedList.EF/10.5.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hnXssJZFvb9nN7iHUADptipPNs0RzSbg2JJF8bv4RyAfSIAYVGm/TAHOE8szs5z2j9CNqoEyU6TU8bi3BI2hUw==",
+      "path": "x.pagedlist.ef/10.5.9",
+      "hashPath": "x.pagedlist.ef.10.5.9.nupkg.sha512"
+    },
+    "Sosa.Reservas.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

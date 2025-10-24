@@ -28,8 +28,8 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="SendGrid" Version="9.29.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
-    <PackageReference Include="X.PagedList.EntityFramework" Version="10.5.9" />
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.9" />
+    <PackageReference Include="X.PagedList" Version="10.5.9" />
+    <PackageReference Include="X.PagedList.EF" Version="10.5.9" />
   </ItemGroup>
 
   <ItemGroup>

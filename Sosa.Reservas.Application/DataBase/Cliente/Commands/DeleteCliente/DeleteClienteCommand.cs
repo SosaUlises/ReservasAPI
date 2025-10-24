@@ -23,7 +23,8 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.DeleteCliente
             }
             else
             {
-                _dataBaseService.Clientes.Remove(entity);
+                entity.IsDeleted = true;
+                _dataBaseService.Clientes.Update(entity);
                 return await _dataBaseService.SaveAsync();
             }
         }

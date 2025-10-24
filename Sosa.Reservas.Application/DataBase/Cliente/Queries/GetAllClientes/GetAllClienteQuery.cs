@@ -2,8 +2,8 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
-using X.PagedList.EntityFramework;
-using X.PagedList.Extensions;
+using X.PagedList.EF;
+
 
 
 namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes

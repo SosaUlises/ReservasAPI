@@ -170,6 +170,9 @@ namespace Sosa.Reservas.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
                     b.HasKey("ClienteId");
 
                     b.ToTable("Cliente", (string)null);

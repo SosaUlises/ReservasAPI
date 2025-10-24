@@ -2,8 +2,10 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\ne
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Application.runtimeconfig.json
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Application.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Application.pdb
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Common.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Domain.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Domain.pdb
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\bin\Debug\net9.0\Sosa.Reservas.Common.pdb
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\obj\Debug\net9.0\Sosa.Reservas.Application.csproj.AssemblyReference.cache
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\obj\Debug\net9.0\Sosa.Reservas.Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application\obj\Debug\net9.0\Sosa.Reservas.Application.AssemblyInfoInputs.cache

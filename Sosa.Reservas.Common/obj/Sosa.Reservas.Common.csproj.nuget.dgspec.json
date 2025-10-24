@@ -98,11 +98,11 @@
               "target": "Package",
               "version": "[9.0.4, )"
             },
-            "X.PagedList.EntityFramework": {
+            "X.PagedList": {
               "target": "Package",
               "version": "[10.5.9, )"
             },
-            "X.PagedList.Mvc.Core": {
+            "X.PagedList.EF": {
               "target": "Package",
               "version": "[10.5.9, )"
             }

@@ -58,6 +58,7 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\De
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Moq.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Moq.EntityFrameworkCore.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Npgsql.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
@@ -70,6 +71,8 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\De
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\System.Security.Permissions.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\X.PagedList.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\X.PagedList.EF.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\xunit.abstractions.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\xunit.assert.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\xunit.core.dll
@@ -152,8 +155,10 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\De
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Application.dll
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Common.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Domain.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Application.pdb
+C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Common.pdb
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Sosa.Reservas.Domain.pdb
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\Debug\net9.0\Sosa.Reservas.Application.Tests.csproj.AssemblyReference.cache
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\Debug\net9.0\Sosa.Reservas.Application.Tests.GeneratedMSBuildEditorConfig.editorconfig
@@ -167,4 +172,3 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\De
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\Debug\net9.0\Sosa.Reservas.Application.Tests.pdb
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\Debug\net9.0\Sosa.Reservas.Application.Tests.genruntimeconfig.cache
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\obj\Debug\net9.0\ref\Sosa.Reservas.Application.Tests.dll
-C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.Application.Tests\bin\Debug\net9.0\Moq.EntityFrameworkCore.dll

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sosa.Reservas.Domain.Entidades.Reserva
 {
-    public class ReservaEntity
+    public class ReservaEntity 
     {
         public int ReservaId {  get; set; }
         public DateTime RegistrarFecha { get; set; }

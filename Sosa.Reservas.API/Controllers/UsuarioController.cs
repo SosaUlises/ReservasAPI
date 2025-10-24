@@ -99,10 +99,10 @@ namespace Sosa.Reservas.API.Controllers
             var data = await getAllUsuarioQuery.Execute(pageNumber,pageSize);
 
 
-            if (data == null || !data.Any())
+            if (!data.Any())
             {
                 return StatusCode(StatusCodes.Status404NotFound,
-                        ResponseApiService.Response(StatusCodes.Status404NotFound, null));
+                        ResponseApiService.Response(StatusCodes.Status404NotFound, data));
             }
 
             return StatusCode(StatusCodes.Status200OK,
