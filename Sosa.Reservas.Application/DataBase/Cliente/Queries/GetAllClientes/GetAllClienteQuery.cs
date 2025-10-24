@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
+using X.PagedList.EntityFramework;
+using X.PagedList.Extensions;
 
 
 namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes
@@ -15,11 +19,15 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllClienteModel>> Execute()
+        public async Task<IPagedList<GetAllClienteModel>> Execute(int pageNumber, int pageSize)
         {
-            var listEntities = await _dataBaseService.Clientes.ToListAsync();
+            var query = _dataBaseService.Clientes.AsQueryable();
 
-            return _mapper.Map<List<GetAllClienteModel>>(listEntities);   
+            var queryDto = query.ProjectTo<GetAllClienteModel>(_mapper.ConfigurationProvider);
+
+            var pagedData = await queryDto.ToPagedListAsync(pageNumber, pageSize);
+
+            return pagedData;   
         }
     }
 }

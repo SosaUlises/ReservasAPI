@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B2D50A46-02F2-462C-89B9-A1A86295B144}|Sosa.Reservas.Application.Tests\\Sosa.Reservas.Application.Tests.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application.tests\\cliente\\deleteclientecommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D50A46-02F2-462C-89B9-A1A86295B144}|Sosa.Reservas.Application.Tests\\Sosa.Reservas.Application.Tests.csproj|solutionrelative:sosa.reservas.application.tests\\cliente\\deleteclientecommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{882D4A52-587E-42C3-B0C1-14754B25CB61}|Sosa.Reservas.Domain\\Sosa.Reservas.Domain.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.domain\\entidades\\cliente\\clienteentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{882D4A52-587E-42C3-B0C1-14754B25CB61}|Sosa.Reservas.Domain\\Sosa.Reservas.Domain.csproj|solutionrelative:sosa.reservas.domain\\entidades\\cliente\\clienteentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2D50A46-02F2-462C-89B9-A1A86295B144}|Sosa.Reservas.Application.Tests\\Sosa.Reservas.Application.Tests.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application.tests\\usuario\\deleteusuariocommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2D50A46-02F2-462C-89B9-A1A86295B144}|Sosa.Reservas.Application.Tests\\Sosa.Reservas.Application.Tests.csproj|solutionrelative:sosa.reservas.application.tests\\usuario\\deleteusuariocommandtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\reserva\\queries\\getallreservas\\getallreservasquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,41 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteEntity.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Domain\\Entidades\\Cliente\\ClienteEntity.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Domain\\Entidades\\Cliente\\ClienteEntity.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Domain\\Entidades\\Cliente\\ClienteEntity.cs",
-              "RelativeToolTip": "Sosa.Reservas.Domain\\Entidades\\Cliente\\ClienteEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T20:34:16.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DeleteClienteCommandTest.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application.Tests\\Cliente\\DeleteClienteCommandTest.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Application.Tests\\Cliente\\DeleteClienteCommandTest.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application.Tests\\Cliente\\DeleteClienteCommandTest.cs",
-              "RelativeToolTip": "Sosa.Reservas.Application.Tests\\Cliente\\DeleteClienteCommandTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAA6AAAAAAAAAA==",
+              "Title": "GetAllReservasQuery.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Reserva\\Queries\\GetAllReservas\\GetAllReservasQuery.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T20:27:42.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DeleteUsuarioCommandTest.cs",
-              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application.Tests\\Usuario\\DeleteUsuarioCommandTest.cs",
-              "RelativeDocumentMoniker": "Sosa.Reservas.Application.Tests\\Usuario\\DeleteUsuarioCommandTest.cs",
-              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application.Tests\\Usuario\\DeleteUsuarioCommandTest.cs",
-              "RelativeToolTip": "Sosa.Reservas.Application.Tests\\Usuario\\DeleteUsuarioCommandTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T20:11:28.414Z",
+              "WhenOpened": "2025-10-24T01:30:38.747Z",
               "EditorCaption": ""
             }
           ]

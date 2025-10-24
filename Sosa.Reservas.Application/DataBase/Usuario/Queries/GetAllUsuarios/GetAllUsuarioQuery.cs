@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
+using X.PagedList.EntityFramework;
 
 
 namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios
@@ -14,11 +17,15 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllUsuarioModel>> Execute()
+       public async Task<IPagedList<GetAllUsuarioModel>> Execute(int pageNumber, int pageSize)
         {
-            var listEntity = await _dataBaseService.Usuarios.ToListAsync();
+            var query =  _dataBaseService.Usuarios.AsQueryable();
 
-            return _mapper.Map<List<GetAllUsuarioModel>>(listEntity);
+            var queryDto = query.ProjectTo<GetAllUsuarioModel>(_mapper.ConfigurationProvider);
+
+            var pagedData = await queryDto.ToPagedListAsync(pageNumber, pageSize);
+
+            return pagedData;
         }
     }
 }

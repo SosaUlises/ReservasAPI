@@ -86,11 +86,18 @@ namespace Sosa.Reservas.API.Controllers
 
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(
-            [FromServices] IGetAllClienteQuery getAllClienteQuery)
+            [FromServices] IGetAllClienteQuery getAllClienteQuery,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10)
         {
-            var data = await getAllClienteQuery.Execute();
+            // Limitamos
+            if(pageNumber <= 0) pageNumber = 1; 
+            if(pageSize <= 0) pageSize = 10; 
+            if(pageSize > 100) pageSize = 100; 
 
-            if (data == null || data.Count == 0)
+            var data = await getAllClienteQuery.Execute(pageNumber,pageSize);
+
+            if (data == null || !data.Any())
             {
                 return StatusCode(StatusCodes.Status404NotFound,
                   ResponseApiService.Response(StatusCodes.Status404NotFound));
