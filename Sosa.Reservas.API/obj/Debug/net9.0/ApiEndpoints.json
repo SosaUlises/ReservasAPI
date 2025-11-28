@@ -150,6 +150,27 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/hotel/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
     "Method": "Update",
     "RelativePath": "api/v1/hotel/update",
     "HttpMethod": "PUT",

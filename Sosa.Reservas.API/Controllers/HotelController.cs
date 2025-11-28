@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
+using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles;
+using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 
@@ -74,6 +76,30 @@ namespace Sosa.Reservas.API.Controllers
             var data = await deleteHotelCommand.Execute(hotelId);
             return StatusCode(StatusCodes.Status201Created,
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
+        }
+
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAll(
+            [FromServices] IGetAllHotelesQuery getAllHotelesQuery,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10
+            )
+        {
+            if (pageNumber <= 0) pageNumber = 1;
+            if (pageSize <= 0) pageSize = 10;
+            if (pageSize > 100) pageSize = 100;
+
+            var data = await getAllHotelesQuery.Execute(pageNumber, pageSize);
+
+            if (!data.Any())
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+                        ResponseApiService.Response(StatusCodes.Status404NotFound, data));
+            }
+
+            return StatusCode(StatusCodes.Status200OK,
+                       ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
     }
