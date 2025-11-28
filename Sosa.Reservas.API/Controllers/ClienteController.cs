@@ -39,6 +39,7 @@ namespace Sosa.Reservas.API.Controllers
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
         }
 
+
         [HttpPut("update")]
         public async Task<IActionResult> Update(
             [FromBody] UpdateClienteModel model,

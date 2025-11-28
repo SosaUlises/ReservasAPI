@@ -202,22 +202,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
-    "Method": "GetByTipo",
-    "RelativePath": "api/v1/reserva/getByTipo/{tipo}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "tipo",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
     "Method": "Delete",
     "RelativePath": "api/v1/usuario/delete/{userId}",

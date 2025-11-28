@@ -7,8 +7,12 @@ namespace Sosa.Reservas.Application.Validators.Cliente
     {
         public CreateClienteValidator()
         {
-            RuleFor(x => x.FullName).NotNull().NotEmpty();
-            RuleFor(x => x.DNI).NotNull().NotEmpty();   
+            RuleFor(x => x.Dni).NotNull().NotEmpty();
+            RuleFor(x => x.Email).NotNull().NotEmpty();   
+            RuleFor(x => x.Telefono).NotNull().NotEmpty();   
+            RuleFor(x => x.Apellido).NotNull().NotEmpty();   
+            RuleFor(x => x.Nombre).NotNull().NotEmpty();   
+            RuleFor(x => x.Password).NotNull().NotEmpty();    
         }
     }
 }

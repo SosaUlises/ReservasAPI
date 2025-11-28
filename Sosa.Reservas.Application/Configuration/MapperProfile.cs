@@ -23,7 +23,6 @@ namespace Sosa.Reservas.Application.Configuration
         public MapperProfile()
         {
             #region Usuario
-            CreateMap<UsuarioEntity, CreateUsuarioModel>().ReverseMap();
             CreateMap<UsuarioEntity, UpdateUsuarioModel>().ReverseMap();
             CreateMap<UsuarioEntity, GetAllUsuarioModel>().ReverseMap();
             CreateMap<UsuarioEntity, GetUsuarioByIdModel>().ReverseMap();
@@ -31,7 +30,18 @@ namespace Sosa.Reservas.Application.Configuration
             #endregion
 
             #region Cliente
-            CreateMap<ClienteEntity, CreateClienteModel>().ReverseMap();
+
+            // Clientes
+            CreateMap<CreateClienteModel, UsuarioEntity>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
+
+            CreateMap<CreateClienteModel, ClienteEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.UsuarioId, opt => opt.Ignore())
+                .ForMember(dest => dest.Usuario, opt => opt.Ignore());
+
+
+
             CreateMap<ClienteEntity, UpdateClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, GetAllClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, GetClienteByIdModel>().ReverseMap();
