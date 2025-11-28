@@ -5,7 +5,9 @@ using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles;
+using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
+using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 
@@ -79,6 +81,7 @@ namespace Sosa.Reservas.API.Controllers
         }
 
 
+        [AllowAnonymous]
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(
             [FromServices] IGetAllHotelesQuery getAllHotelesQuery,
@@ -100,6 +103,28 @@ namespace Sosa.Reservas.API.Controllers
 
             return StatusCode(StatusCodes.Status200OK,
                        ResponseApiService.Response(StatusCodes.Status200OK, data));
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet("getByPais/{pais}")]
+        public async Task<IActionResult> GetByPais(
+            string pais,
+            [FromServices] IGetHotelesByPaisQuery getHotelesByPaisQuery)
+        {
+            if (string.IsNullOrWhiteSpace(pais))
+            {
+                return BadRequest(
+                    ResponseApiService.Response(StatusCodes.Status400BadRequest,
+                    "Debe especificar un país")
+                );
+            }
+
+            pais = pais.Trim();
+
+            var data = await getHotelesByPaisQuery.Execute(pais);
+
+            return StatusCode(data.StatusCode, data);
         }
 
     }
