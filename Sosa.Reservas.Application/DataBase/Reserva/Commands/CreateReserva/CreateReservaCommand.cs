@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Sosa.Reservas.Application.DataBase.Email;
 using Sosa.Reservas.Application.Features;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Models;
+using static Sosa.Reservas.Application.DataBase.Email.SendEmailConfirmacionReservaCommand;
 
 
 namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
@@ -12,11 +14,15 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
     {
         private readonly IDataBaseService _dataBaseService;
         private readonly IMapper _mapper;
-
-        public CreateReservaCommand(IDataBaseService dataBaseService, IMapper mapper)
+        private readonly ISendEmailConfirmacionReservaCommand _sendEmailConfirmacionReservaCommand;
+        public CreateReservaCommand(
+            IDataBaseService dataBaseService,
+            IMapper mapper,
+            ISendEmailConfirmacionReservaCommand sendEmailConfirmacionReservaCommand)
         {
             _dataBaseService = dataBaseService;
             _mapper = mapper;
+            _sendEmailConfirmacionReservaCommand = sendEmailConfirmacionReservaCommand;
         }
 
         public async Task<BaseResponseModel> Execute(CreateReservaModel model)
@@ -86,6 +92,8 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
 
             await _dataBaseService.Reservas.AddAsync(entity);
             await _dataBaseService.SaveAsync();
+
+            await _sendEmailConfirmacionReservaCommand.Execute(entity, cliente, habitacion);
 
             return ResponseApiService.Response(
                 StatusCodes.Status201Created,

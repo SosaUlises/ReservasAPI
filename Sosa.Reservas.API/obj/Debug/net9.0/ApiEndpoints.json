@@ -287,22 +287,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sosa.Reservas.API.Controllers.NotificationController",
-    "Method": "Create",
-    "RelativePath": "api/v1/notification/create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Sosa.Reservas.Domain.Models.SendGridEmail.SendGridEmailRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
     "Method": "Create",
     "RelativePath": "api/v1/reserva/create",
@@ -341,8 +325,8 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
-    "Method": "GetByDni",
-    "RelativePath": "api/v1/reserva/getByCliente/{clienteId}",
+    "Method": "GetAllByCliente",
+    "RelativePath": "api/v1/reserva/getAllByCliente/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
