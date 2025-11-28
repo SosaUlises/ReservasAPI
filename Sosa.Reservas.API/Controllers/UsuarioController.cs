@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
@@ -60,29 +58,7 @@ namespace Sosa.Reservas.API.Controllers
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
-        [HttpDelete("delete/{userId}")]
-        public async Task<IActionResult> Delete(int userId,
-        [FromServices] IDeleteUsuarioCommand deleteUsuarioCommand)
-        {
-            if (userId == 0)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                 ResponseApiService.Response(StatusCodes.Status400BadRequest));
-            }
-
-            var data = await deleteUsuarioCommand.Execute(userId);
-
-            if (!data)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                    ResponseApiService.Response(StatusCodes.Status404NotFound, data));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
-                   ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
-        }
+        
 
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(

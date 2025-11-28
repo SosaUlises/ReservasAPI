@@ -12,8 +12,6 @@ using Sosa.Reservas.Application.DataBase.Login.Queries;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
@@ -35,7 +33,6 @@ namespace Sosa.Reservas.Application
 
             #region Usuarios
             services.AddTransient<IUpdateUsuarioCommand, UpdateUsuarioCommand>();
-            services.AddTransient<IDeleteUsuarioCommand, DeleteUsuarioCommand>();
             services.AddTransient<IUpdateUsuarioPasswordCommand, UpdateUsuarioPasswordCommand>();
             services.AddTransient<IGetAllUsuarioQuery, GetAllUsuarioQuery>();
             services.AddTransient<IGetUsuarioByIdQuery, GetUsuarioByIdQuery>();
@@ -59,7 +56,6 @@ namespace Sosa.Reservas.Application
 
             #region Validators
 
-            services.AddScoped<IValidator<CreateUsuarioModel>, CreateUsuarioValidator>();
             services.AddScoped<IValidator<UpdateUsuarioModel>, UpdateUsuarioValidator>();
             services.AddScoped<IValidator<UpdateUsuarioPasswordModel>, UpdateUsuarioPasswordValidator>();
             services.AddScoped<IValidator<(string,string)>, GetUsuarioByUserNameAndPasswordValidator>();

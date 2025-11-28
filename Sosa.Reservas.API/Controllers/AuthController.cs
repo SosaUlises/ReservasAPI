@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Login.Queries;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario; 
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.External.GetTokenJWT;
 using Sosa.Reservas.Application.Features;
@@ -31,30 +30,6 @@ namespace Sosa.Reservas.API.Controllers
             _getTokenJwtService = getTokenJwtService;
         }
 
-
-        [AllowAnonymous]
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] CreateUsuarioModel model) 
-        {
-            var user = new UsuarioEntity
-            {
-                UserName = model.UserName,
-                Email = model.Email, 
-                Nombre = model.Nombre,
-                Apellido = model.Apellido
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded)
-            {
-                return BadRequest(ResponseApiService.Response(400, result.Errors));
-            }
-
-            await _userManager.AddToRoleAsync(user, "Cliente");
-
-            return StatusCode(201, ResponseApiService.Response(201, new { UserId = user.Id }));
-        }
 
         [AllowAnonymous]
         [HttpPost("login")]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sosa.Reservas.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.DeleteCliente
 {
     public interface IDeleteClienteCommand
     {
-        Task<bool> Execute(int id);
+        Task<BaseResponseModel> Execute(int clienteId);
     }
 }

@@ -60,10 +60,12 @@ namespace Sosa.Reservas.API.Controllers
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
+
         [HttpDelete("delete/{clienteId}")]
-        public async Task<IActionResult> Delete( 
-            int clienteId, 
-            [FromServices] IDeleteClienteCommand deleteClienteCommand)
+        public async Task<IActionResult> Delete(
+           int clienteId,
+           [FromServices] IDeleteClienteCommand deleteClienteCommand
+           )
         {
             if (clienteId == 0)
             {
@@ -72,16 +74,8 @@ namespace Sosa.Reservas.API.Controllers
             }
 
             var data = await deleteClienteCommand.Execute(clienteId);
-            if (!data)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                    ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
-                ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
+
+            return StatusCode(data.StatusCode, data);
         }
 
 
