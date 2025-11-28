@@ -8,6 +8,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
+using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.DataBase.Login.Command.Login;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
@@ -51,6 +52,7 @@ namespace Sosa.Reservas.Application
 
             #region Hotel
             services.AddTransient<ICreateHotelCommand, CreateHotelCommand>();
+            services.AddTransient<IUpdateHotelCommand, UpdateHotelCommand>();
             #endregion
 
             #region Validators

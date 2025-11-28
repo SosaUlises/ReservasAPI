@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
+using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 
@@ -30,6 +31,27 @@ namespace Sosa.Reservas.API.Controllers
             }
 
             var data = await createHotelCommand.Execute(model);
+            return StatusCode(StatusCodes.Status201Created,
+                ResponseApiService.Response(StatusCodes.Status201Created, data));
+        }
+
+        [Authorize(Roles = "Administrador")]
+        [HttpPut("update")]
+        public async Task<IActionResult> Update(
+           [FromBody] UpdateHotelModel model,
+           [FromServices] IUpdateHotelCommand updateHotelCommand,
+           [FromServices] IValidator<UpdateHotelModel> validator
+           )
+        {
+            var validate = await validator.ValidateAsync(model);
+
+            if (!validate.IsValid)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+            }
+
+            var data = await updateHotelCommand.Execute(model);
             return StatusCode(StatusCodes.Status201Created,
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
         }

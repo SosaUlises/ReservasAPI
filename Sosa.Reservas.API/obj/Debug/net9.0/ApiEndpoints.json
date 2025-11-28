@@ -117,6 +117,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Create",
+    "RelativePath": "api/v1/hotel/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel.CreateHotelModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Update",
+    "RelativePath": "api/v1/hotel/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel.UpdateHotelModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sosa.Reservas.API.Controllers.NotificationController",
     "Method": "Create",
     "RelativePath": "api/v1/notification/create",
