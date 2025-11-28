@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sosa.Reservas.Application.DataBase.Login.Queries
+namespace Sosa.Reservas.Application.DataBase.Login.Command.Login
 {
     public class LoginModel
     {
-        public string UserName { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
     }
 }

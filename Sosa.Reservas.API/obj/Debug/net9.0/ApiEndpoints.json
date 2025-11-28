@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Sosa.Reservas.Application.DataBase.Login.Queries.LoginModel",
+        "Type": "Sosa.Reservas.Application.DataBase.Login.Command.Login.LoginModel",
         "IsRequired": true
       }
     ],

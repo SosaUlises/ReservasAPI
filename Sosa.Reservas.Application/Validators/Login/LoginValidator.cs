@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Sosa.Reservas.Application.DataBase.Login.Queries;
+using Sosa.Reservas.Application.DataBase.Login.Command.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +12,8 @@ namespace Sosa.Reservas.Application.Validators.Login
     {
         public LoginValidator()
         {
-            RuleFor(x => x.UserName)
-                .NotEmpty().WithMessage("El nombre de usuario no puede estar vacío.");
+            RuleFor(x => x.Email)
+                .NotEmpty().WithMessage("El email no puede estar vacío.");
 
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("La contraseña no puede estar vacía.");

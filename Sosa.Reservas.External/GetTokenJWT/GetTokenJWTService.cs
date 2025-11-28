@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Sosa.Reservas.Application.External.GetTokenJWT;
+using Sosa.Reservas.Domain.Entidades.Usuario;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -16,43 +17,50 @@ namespace Sosa.Reservas.External.GetTokenJWT
             _configuration = configuration;
         }
 
-        public string Execute(string id, string role)
+        public string Execute(string userId, string role, UsuarioEntity usuario)
         {
-            var jwtKey = _configuration["Jwt:Key"];
-            var jwtIssuer = _configuration["Jwt:Issuer"];
-            var jwtAudience = _configuration["Jwt:Audience"];
+            // Variables de configuración
+            var jwtKey = _configuration["Jwt_Key"];
+            var jwtIssuer = _configuration["Jwt_Issuer"];
+            var jwtAudience = _configuration["Jwt_Audience"];
 
-            if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
+            if (string.IsNullOrEmpty(jwtKey) ||
+                string.IsNullOrEmpty(jwtIssuer) ||
+                string.IsNullOrEmpty(jwtAudience))
             {
-                throw new InvalidOperationException("La clave, el emisor o la audiencia de JWT no están configurados correctamente.");
+                throw new InvalidOperationException("JWT mal configurado.");
             }
 
+            // Handler y firma
             var tokenHandler = new JwtSecurityTokenHandler();
-            var signinKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
 
+            // Claims
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, id)
-            };
+        {
+            new Claim(ClaimTypes.NameIdentifier, userId),
+            new Claim(ClaimTypes.Email, usuario.Email),
+            new Claim("Nombre", usuario.Nombre),
+            new Claim("Apellido", usuario.Apellido),
+        };
 
             if (!string.IsNullOrEmpty(role))
-            {
                 claims.Add(new Claim(ClaimTypes.Role, role));
-            }
 
-            var tokenDescriptor = new SecurityTokenDescriptor
+            // Descriptor del token
+            var descriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims), 
-                Expires = DateTime.UtcNow.AddMinutes(15),
-                SigningCredentials = new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256Signature),
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddHours(3),
+                SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256),
                 Issuer = jwtIssuer,
                 Audience = jwtAudience
             };
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-
-            return tokenString;
+            // Generación
+            var token = tokenHandler.CreateToken(descriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
+
 }
