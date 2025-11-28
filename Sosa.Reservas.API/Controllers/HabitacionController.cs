@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion;
+using Sosa.Reservas.Application.DataBase.Habitacion.Command.DeleteHabitacion;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.UpdateHabitacion;
+using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
@@ -53,6 +55,25 @@ namespace Sosa.Reservas.API.Controllers
             }
 
             var data = await updateHabitacionCommand.Execute(model);
+            return StatusCode(StatusCodes.Status201Created,
+                ResponseApiService.Response(StatusCodes.Status201Created, data));
+        }
+
+        [Authorize(Roles = "Administrador")]
+        [HttpDelete("delete/{habitacionId}")]
+        public async Task<IActionResult> Delete(
+            int habitacionId,
+           [FromServices] IDeleteHabitacionCommand deleteHabitacionCommand
+           )
+        {
+
+            if (habitacionId == 0)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                ResponseApiService.Response(StatusCodes.Status400BadRequest));
+            }
+
+            var data = await deleteHabitacionCommand.Execute(habitacionId);
             return StatusCode(StatusCodes.Status201Created,
                 ResponseApiService.Response(StatusCodes.Status201Created, data));
         }

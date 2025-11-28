@@ -134,6 +134,22 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/habitacion/delete/{habitacionId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "habitacionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
     "Method": "Update",
     "RelativePath": "api/v1/habitacion/update",
     "HttpMethod": "PUT",

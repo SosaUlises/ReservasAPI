@@ -8,6 +8,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion;
+using Sosa.Reservas.Application.DataBase.Habitacion.Command.DeleteHabitacion;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.UpdateHabitacion;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
@@ -67,6 +68,7 @@ namespace Sosa.Reservas.Application
             #region Habitacion
             services.AddTransient<ICreateHabitacionCommand, CreateHabitacionCommand>();
             services.AddTransient<IUpdateHabitacionCommand, UpdateHabitacionCommand>();
+            services.AddTransient<IDeleteHabitacionCommand, DeleteHabitacionCommand>();
             #endregion
 
             #region Validators
