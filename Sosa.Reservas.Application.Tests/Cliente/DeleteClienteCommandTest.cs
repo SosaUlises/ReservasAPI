@@ -23,8 +23,8 @@ namespace Sosa.Reservas.Application.Tests.Cliente
 
             _listaDeClientes = new List<ClienteEntity>()
             {
-                new ClienteEntity() { ClienteId = 1, FullName = "Sosa Ulises", DNI = "43767679"},
-                new ClienteEntity() { ClienteId = 2, FullName = "Aguirre Clara", DNI = "43797676"},
+                new ClienteEntity() { Id = 1, FullName = "Sosa Ulises", DNI = "43767679"},
+                new ClienteEntity() { Id = 2, FullName = "Aguirre Clara", DNI = "43797676"},
             };
 
 

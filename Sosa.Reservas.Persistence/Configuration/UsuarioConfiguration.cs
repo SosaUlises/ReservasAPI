@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Sosa.Reservas.Domain.Entidades.Cliente;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,11 @@ namespace Sosa.Reservas.Persistence.Configuration
             entityBuilder.ToTable("Usuario");
             entityBuilder.Property(x=> x.Nombre).IsRequired();
             entityBuilder.Property(x => x.Apellido).IsRequired();
-            entityBuilder.Property(x => x.UserName).IsRequired();
+            entityBuilder.Property(x => x.Dni).IsRequired();
 
-            entityBuilder.HasMany(x => x.Reservas)
-                .WithOne(x => x.Usuario)
-                .HasForeignKey(x => x.UsuarioId);
+            entityBuilder.HasOne(x => x.Cliente)
+               .WithOne(x => x.Usuario)
+               .HasForeignKey<ClienteEntity>(x => x.UsuarioId);
         }
     }
 }

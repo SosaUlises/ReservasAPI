@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Sosa.Reservas.Domain.Entidades.Cliente;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 
 namespace Sosa.Reservas.Domain.Entidades.Usuario
@@ -7,8 +8,8 @@ namespace Sosa.Reservas.Domain.Entidades.Usuario
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-
-        public ICollection<ReservaEntity> Reservas { get; set; }
+        public string Dni { get; set; }
+        public ClienteEntity? Cliente { get; set; }
 
     }
 }

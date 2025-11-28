@@ -12,7 +12,6 @@ using Sosa.Reservas.Application.DataBase.Login.Queries;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.DeleteUsuario;
 using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
@@ -56,7 +55,6 @@ namespace Sosa.Reservas.Application
             services.AddTransient<ICreateReservaCommand, CreateReservaCommand>();
             services.AddTransient<IGetAllReservasQuery, GetAllReservasQuery>();
             services.AddTransient<IGetReservasByDniQuery, GetReservasByDniQuery>();
-            services.AddTransient<IGetReservasByTipoQuery, GetReservasByTipoQuery>();
             #endregion
 
             #region Validators

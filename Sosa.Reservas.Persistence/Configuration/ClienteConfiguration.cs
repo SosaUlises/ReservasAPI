@@ -14,13 +14,17 @@ namespace Sosa.Reservas.Persistence.Configuration
         public ClienteConfiguration(EntityTypeBuilder<ClienteEntity> entityBuilder)
         {
             entityBuilder.ToTable("Cliente");
-            entityBuilder.HasKey(c => c.ClienteId);
-            entityBuilder.Property(c => c.FullName).IsRequired();
-            entityBuilder.Property(c => c.DNI).IsRequired();
+            entityBuilder.HasKey(c => c.Id);
+            entityBuilder.Property(c => c.Telefono).IsRequired();
+         
 
             entityBuilder.HasMany(x => x.Reservas)
               .WithOne(x => x.Cliente)
               .HasForeignKey(x => x.ClienteId);
+
+            entityBuilder.HasOne(x => x.Usuario)
+             .WithOne(x => x.Cliente)
+             .HasForeignKey<ClienteEntity>(x => x.UsuarioId);
         }
     }
 }

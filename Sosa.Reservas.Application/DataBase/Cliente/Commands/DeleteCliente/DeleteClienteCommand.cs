@@ -15,7 +15,7 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.DeleteCliente
 
         public async Task<bool> Execute(int id)
         {
-            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.ClienteId == id);
+            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.Id == id);
 
             if (entity == null)
             {

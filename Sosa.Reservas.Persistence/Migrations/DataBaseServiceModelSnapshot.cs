@@ -156,35 +156,109 @@ namespace Sosa.Reservas.Persistence.Migrations
 
             modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Cliente.ClienteEntity", b =>
                 {
-                    b.Property<int>("ClienteId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ClienteId"));
-
-                    b.Property<string>("DNI")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.HasKey("ClienteId");
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId")
+                        .IsUnique();
 
                     b.ToTable("Cliente", (string)null);
                 });
 
-            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Reserva.ReservaEntity", b =>
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Habitacion.HabitacionEntity", b =>
                 {
-                    b.Property<int>("ReservaId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ReservaId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Activa")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("CapacidadPersonas")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("HotelId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("PrecioPorNoche")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HotelId");
+
+                    b.ToTable("Habitacion", (string)null);
+                });
+
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Hotel.HotelEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ciudad")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Estrellas")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Pais")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hotel", (string)null);
+                });
+
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Reserva.ReservaEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CantidadPersonas")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CheckIn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("CheckOut")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("integer");
@@ -193,21 +267,17 @@ namespace Sosa.Reservas.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("RegistrarFecha")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("TipoReserva")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("HabitacionId")
                         .HasColumnType("integer");
 
-                    b.HasKey("ReservaId");
+                    b.Property<decimal>("PrecioTotal")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("HabitacionId");
 
                     b.ToTable("Reserva", (string)null);
                 });
@@ -229,6 +299,10 @@ namespace Sosa.Reservas.Persistence.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Dni")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -272,7 +346,6 @@ namespace Sosa.Reservas.Persistence.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
@@ -339,23 +412,45 @@ namespace Sosa.Reservas.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Cliente.ClienteEntity", b =>
+                {
+                    b.HasOne("Sosa.Reservas.Domain.Entidades.Usuario.UsuarioEntity", "Usuario")
+                        .WithOne("Cliente")
+                        .HasForeignKey("Sosa.Reservas.Domain.Entidades.Cliente.ClienteEntity", "UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Habitacion.HabitacionEntity", b =>
+                {
+                    b.HasOne("Sosa.Reservas.Domain.Entidades.Hotel.HotelEntity", "Hotel")
+                        .WithMany("Habitaciones")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hotel");
+                });
+
             modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Reserva.ReservaEntity", b =>
                 {
                     b.HasOne("Sosa.Reservas.Domain.Entidades.Cliente.ClienteEntity", "Cliente")
                         .WithMany("Reservas")
                         .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Sosa.Reservas.Domain.Entidades.Usuario.UsuarioEntity", "Usuario")
+                    b.HasOne("Sosa.Reservas.Domain.Entidades.Habitacion.HabitacionEntity", "Habitacion")
                         .WithMany("Reservas")
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("HabitacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Cliente");
 
-                    b.Navigation("Usuario");
+                    b.Navigation("Habitacion");
                 });
 
             modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Cliente.ClienteEntity", b =>
@@ -363,9 +458,19 @@ namespace Sosa.Reservas.Persistence.Migrations
                     b.Navigation("Reservas");
                 });
 
-            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Usuario.UsuarioEntity", b =>
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Habitacion.HabitacionEntity", b =>
                 {
                     b.Navigation("Reservas");
+                });
+
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Hotel.HotelEntity", b =>
+                {
+                    b.Navigation("Habitaciones");
+                });
+
+            modelBuilder.Entity("Sosa.Reservas.Domain.Entidades.Usuario.UsuarioEntity", b =>
+                {
+                    b.Navigation("Cliente");
                 });
 #pragma warning restore 612, 618
         }

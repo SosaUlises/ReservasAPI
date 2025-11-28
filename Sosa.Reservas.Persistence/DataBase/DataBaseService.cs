@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Sosa.Reservas.Application.DataBase;
 using Sosa.Reservas.Common.SoftDelete;
 using Sosa.Reservas.Domain.Entidades.Cliente;
+using Sosa.Reservas.Domain.Entidades.Habitacion;
+using Sosa.Reservas.Domain.Entidades.Hotel;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 using Sosa.Reservas.Persistence.Configuration;
@@ -21,6 +23,8 @@ namespace Sosa.Reservas.Persistence.DataBase
         public DbSet<UsuarioEntity> Usuarios { get; set; }
         public DbSet<ClienteEntity> Clientes { get; set; }
         public DbSet<ReservaEntity> Reservas { get; set; }
+        public DbSet<HabitacionEntity> Habitaciones { get; set; }
+        public DbSet<HotelEntity> Hoteles { get; set; }
 
 
         public async Task<bool> SaveAsync()
@@ -77,6 +81,8 @@ namespace Sosa.Reservas.Persistence.DataBase
             new UsuarioConfiguration(modelBuilder.Entity<UsuarioEntity>());
             new ReservaConfiguration(modelBuilder.Entity<ReservaEntity>());
             new ClienteConfiguration(modelBuilder.Entity<ClienteEntity>());
+            new HabitacionConfiguration(modelBuilder.Entity<HabitacionEntity>());
+            new HotelConfiguration(modelBuilder.Entity<HotelEntity>());
         }
     }
 }

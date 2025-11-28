@@ -16,7 +16,7 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni
 
         public async Task<List<GetReservasByDniModel>> Execute(string dni)
         {
-            var listEntitis = await _dataBaseService.Reservas.Where(x => x.Cliente.DNI == dni).ToListAsync();
+            var listEntitis = await _dataBaseService.Reservas.Where(x => x.Cliente.Usuario.Dni == dni).ToListAsync();
             return _mapper.Map<List<GetReservasByDniModel>>(listEntitis);
         }
     }

@@ -17,7 +17,7 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById
 
         public async Task<GetClienteByIdModel> Execute(int id)
         {
-            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.ClienteId == id);
+            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.Id == id);
 
             return _mapper.Map<GetClienteByIdModel>(entity);
         }

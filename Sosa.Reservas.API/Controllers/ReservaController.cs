@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByTipo;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 
@@ -84,30 +83,7 @@ namespace Sosa.Reservas.API.Controllers
             }
         }
 
-        [HttpGet("getByTipo/{tipo}")]
-        public async Task<IActionResult> GetByTipo(
-            string tipo,
-            [FromServices] IGetReservasByTipoQuery getReservasByTipoQuery)
-        {
-            if(tipo == null)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
-            }
-
-            var data = await getReservasByTipoQuery.Execute(tipo);
-
-            if(data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
-                ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
-        }
+       
         
     }
 }
