@@ -117,6 +117,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Create",
+    "RelativePath": "api/v1/habitacion/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion.CreateHabitacionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Update",
+    "RelativePath": "api/v1/habitacion/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Habitacion.Command.UpdateHabitacion.UpdateHabitacionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
     "Method": "Create",
     "RelativePath": "api/v1/hotel/create",
