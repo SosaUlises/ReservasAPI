@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sosa.Reservas.Domain.Entidades.Cliente;
+using Sosa.Reservas.Domain.Entidades.Habitacion;
+using Sosa.Reservas.Domain.Entidades.Hotel;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 
@@ -11,6 +13,8 @@ namespace Sosa.Reservas.Application.DataBase
         DbSet<UsuarioEntity> Usuarios { get; set; }
         DbSet<ClienteEntity> Clientes { get; set; }
         DbSet<ReservaEntity> Reservas { get; set; }
+        DbSet<HotelEntity> Hoteles { get; set; }
+        DbSet<HabitacionEntity> Habitaciones { get; set; }
         Task<bool> SaveAsync();
 
     }

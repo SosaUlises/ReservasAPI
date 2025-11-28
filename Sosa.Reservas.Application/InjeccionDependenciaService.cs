@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Sosa.Reservas.Application.Configuration;
 using Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente;
@@ -12,8 +11,6 @@ using Sosa.Reservas.Application.DataBase.Login.Queries;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
@@ -32,8 +29,6 @@ namespace Sosa.Reservas.Application
             services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
             #region Usuarios
-            services.AddTransient<IUpdateUsuarioCommand, UpdateUsuarioCommand>();
-            services.AddTransient<IUpdateUsuarioPasswordCommand, UpdateUsuarioPasswordCommand>();
             services.AddTransient<IGetAllUsuarioQuery, GetAllUsuarioQuery>();
             services.AddTransient<IGetUsuarioByIdQuery, GetUsuarioByIdQuery>();
             services.AddTransient<IGetUsuarioByUserNameAndPasswordQuery, GetUsuarioByUserNameAndPasswordQuery>();
@@ -56,9 +51,7 @@ namespace Sosa.Reservas.Application
 
             #region Validators
 
-            services.AddScoped<IValidator<UpdateUsuarioModel>, UpdateUsuarioValidator>();
-            services.AddScoped<IValidator<UpdateUsuarioPasswordModel>, UpdateUsuarioPasswordValidator>();
-            services.AddScoped<IValidator<(string,string)>, GetUsuarioByUserNameAndPasswordValidator>();
+            services.AddScoped<IValidator<(string, string)>, GetUsuarioByUserNameAndPasswordValidator>();
 
             services.AddScoped<IValidator<CreateClienteModel>, CreateClienteValidator>();
             services.AddScoped<IValidator<UpdateClienteModel>, UpdateClienteValidator>();

@@ -1,13 +1,8 @@
-﻿using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario;
-using Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
 using Sosa.Reservas.Application.Exception;
-using Sosa.Reservas.Application.External.GetTokenJWT;
 using Sosa.Reservas.Application.Features;
 
 namespace Sosa.Reservas.API.Controllers
@@ -19,46 +14,6 @@ namespace Sosa.Reservas.API.Controllers
     public class UsuarioController : ControllerBase
     {
 
-        [HttpPut("update")]
-        public async Task<IActionResult> Update(
-            [FromBody] UpdateUsuarioModel model,
-            [FromServices] IUpdateUsuarioCommand updateUsuarioCommand,
-            [FromServices] IValidator<UpdateUsuarioModel> validator)
-        {
-            var validate = await validator.ValidateAsync(model);
-
-            if (!validate.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
-            }
-
-
-            var data = await updateUsuarioCommand.Execute(model);
-            return StatusCode(StatusCodes.Status200OK,
-                ResponseApiService.Response(StatusCodes.Status200OK, data));
-        }
-
-        [HttpPut("update-password")]
-        public async Task<IActionResult> UpdatePassword(
-         [FromBody] UpdateUsuarioPasswordModel model,
-         [FromServices] IUpdateUsuarioPasswordCommand updateUsuarioPasswordCommand,
-         [FromServices] IValidator<UpdateUsuarioPasswordModel> validator)
-        {
-            var validate = await validator.ValidateAsync(model);
-
-            if (!validate.IsValid)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest,
-                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
-            }
-
-            var data = await updateUsuarioPasswordCommand.Execute(model);
-            return StatusCode(StatusCodes.Status200OK,
-                ResponseApiService.Response(StatusCodes.Status200OK, data));
-        }
-
-        
 
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(
@@ -68,11 +23,11 @@ namespace Sosa.Reservas.API.Controllers
             )
         {
             // Limitamos
-            if(pageNumber <= 0) pageNumber = 1;
-            if(pageSize <= 0) pageSize = 10;
-            if(pageSize > 100) pageSize = 100;
+            if (pageNumber <= 0) pageNumber = 1;
+            if (pageSize <= 0) pageSize = 10;
+            if (pageSize > 100) pageSize = 100;
 
-            var data = await getAllUsuarioQuery.Execute(pageNumber,pageSize);
+            var data = await getAllUsuarioQuery.Execute(pageNumber, pageSize);
 
 
             if (!data.Any())
