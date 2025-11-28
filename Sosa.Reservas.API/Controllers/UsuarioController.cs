@@ -9,6 +9,7 @@ namespace Sosa.Reservas.API.Controllers
 {
     [Authorize]
     [Route("api/v1/usuario")]
+    [Authorize(Roles = "Administrador")]
     [ApiController]
     [TypeFilter(typeof(ExceptionManager))]
     public class UsuarioController : ControllerBase
@@ -41,24 +42,20 @@ namespace Sosa.Reservas.API.Controllers
         }
 
         [HttpGet("getById/{userId}")]
-        public async Task<IActionResult> GetById(int userId, [FromServices] IGetUsuarioByIdQuery getUsuarioByIdQuery)
+        public async Task<IActionResult> GetById(
+              int userId,
+              [FromServices] IGetUsuarioByIdQuery getUsuarioByIdQuery)
         {
 
             if (userId == 0)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
-                        ResponseApiService.Response(StatusCodes.Status400BadRequest));
+                    ResponseApiService.Response(StatusCodes.Status400BadRequest));
             }
 
             var data = await getUsuarioByIdQuery.Execute(userId);
 
-            if (data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                       ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            return StatusCode(StatusCodes.Status200OK,
-                       ResponseApiService.Response(StatusCodes.Status200OK, data));
+            return StatusCode(data.StatusCode, data);
         }
 
 

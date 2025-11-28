@@ -13,11 +13,9 @@ using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
 using Sosa.Reservas.Application.Validators.Cliente;
 using Sosa.Reservas.Application.Validators.Login;
 using Sosa.Reservas.Application.Validators.Reserva;
-using Sosa.Reservas.Application.Validators.Usuario;
 
 namespace Sosa.Reservas.Application
 {
@@ -31,7 +29,7 @@ namespace Sosa.Reservas.Application
             #region Usuarios
             services.AddTransient<IGetAllUsuarioQuery, GetAllUsuarioQuery>();
             services.AddTransient<IGetUsuarioByIdQuery, GetUsuarioByIdQuery>();
-            services.AddTransient<IGetUsuarioByUserNameAndPasswordQuery, GetUsuarioByUserNameAndPasswordQuery>();
+           
             #endregion
 
             #region Clientes
@@ -51,7 +49,7 @@ namespace Sosa.Reservas.Application
 
             #region Validators
 
-            services.AddScoped<IValidator<(string, string)>, GetUsuarioByUserNameAndPasswordValidator>();
+   
 
             services.AddScoped<IValidator<CreateClienteModel>, CreateClienteValidator>();
             services.AddScoped<IValidator<UpdateClienteModel>, UpdateClienteValidator>();

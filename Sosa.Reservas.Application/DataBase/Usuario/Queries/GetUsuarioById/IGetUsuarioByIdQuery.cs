@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sosa.Reservas.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById
 {
     public interface IGetUsuarioByIdQuery
     {
-        Task<GetUsuarioByIdModel> Execute(int id);
+        Task<BaseResponseModel> Execute(int id);
     }
 }

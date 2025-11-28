@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 using X.PagedList.EF;
-
-
 
 namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios
 {
@@ -18,9 +15,9 @@ namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios
             _mapper = mapper;
         }
 
-       public async Task<IPagedList<GetAllUsuarioModel>> Execute(int pageNumber, int pageSize)
+        public async Task<IPagedList<GetAllUsuarioModel>> Execute(int pageNumber, int pageSize)
         {
-            var query =  _dataBaseService.Usuarios.AsQueryable();
+            var query = _dataBaseService.Usuarios.AsQueryable();
 
             var queryDto = query.ProjectTo<GetAllUsuarioModel>(_mapper.ConfigurationProvider);
 

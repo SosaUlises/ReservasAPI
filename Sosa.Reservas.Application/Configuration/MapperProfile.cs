@@ -7,7 +7,6 @@ using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioByUserNameAndPassword;
 using Sosa.Reservas.Domain.Entidades.Cliente;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
@@ -21,7 +20,6 @@ namespace Sosa.Reservas.Application.Configuration
             #region Usuario
             CreateMap<UsuarioEntity, GetAllUsuarioModel>().ReverseMap();
             CreateMap<UsuarioEntity, GetUsuarioByIdModel>().ReverseMap();
-            CreateMap<UsuarioEntity, GetUsuarioByUserNameAndPasswordModel>().ReverseMap();
             #endregion
 
             #region Cliente

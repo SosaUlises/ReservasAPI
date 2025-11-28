@@ -1,30 +1,37 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Sosa.Reservas.Application.Features;
+using Sosa.Reservas.Domain.Entidades.Usuario;
+using Sosa.Reservas.Domain.Models;
 
 namespace Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById
 {
     public class GetUsuarioByIdQuery : IGetUsuarioByIdQuery
     {
-        private readonly IDataBaseService _dataBaseService;
+        private readonly UserManager<UsuarioEntity> _userManager;
         private readonly IMapper _mapper;
 
-        public GetUsuarioByIdQuery(IDataBaseService dataBaseService, IMapper mapper)
+        public GetUsuarioByIdQuery(UserManager<UsuarioEntity> userManager, IMapper mapper)
         {
             _mapper = mapper;
-            _dataBaseService = dataBaseService;
+            _userManager = userManager;
         }
 
-        public async Task<GetUsuarioByIdModel> Execute(int id)
+        public async Task<BaseResponseModel> Execute(int id)
         {
-            var entity = await _dataBaseService.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
 
-            return _mapper.Map<GetUsuarioByIdModel>(entity);
-           
+            if (user == null)
+            {
+                return ResponseApiService.Response(StatusCodes.Status404NotFound,
+                    "Usuario no encontrado");
+            }
+
+            return ResponseApiService.Response(StatusCodes.Status200OK,
+                _mapper.Map<GetUsuarioByIdModel>(user));
+
         }
 
     }
