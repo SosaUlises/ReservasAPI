@@ -134,6 +134,22 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/hotel/delete/{hotelId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
     "Method": "Update",
     "RelativePath": "api/v1/hotel/update",
     "HttpMethod": "PUT",

@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\injecciondependenciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\database\\hotel\\command\\deletehotel\\deletehotelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\database\\hotel\\command\\deletehotel\\deletehotelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|c:\\users\\ulipv\\source\\repos\\sosa.reservas\\sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6E275DA-B1CC-44D7-B723-672270DFB661}|Sosa.Reservas.Application\\Sosa.Reservas.Application.csproj|solutionrelative:sosa.reservas.application\\configuration\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -52,9 +56,22 @@
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
               "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
               "RelativeToolTip": "Sosa.Reservas.Application\\InjeccionDependenciaService.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDYAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T21:15:03.632Z",
+              "WhenOpened": "2025-11-28T21:20:17.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeleteHotelCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\DeleteHotel\\DeleteHotelCommand.cs",
+              "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\DeleteHotel\\DeleteHotelCommand.cs",
+              "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\DeleteHotel\\DeleteHotelCommand.cs",
+              "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\DeleteHotel\\DeleteHotelCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T21:17:18.995Z",
               "EditorCaption": ""
             },
             {
@@ -65,14 +82,14 @@
               "RelativeDocumentMoniker": "Sosa.Reservas.API\\Controllers\\HotelController.cs",
               "ToolTip": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.API\\Controllers\\HotelController.cs",
               "RelativeToolTip": "Sosa.Reservas.API\\Controllers\\HotelController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowDQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowEEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-28T21:13:41.493Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MapperProfile.cs",
               "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
@@ -80,12 +97,11 @@
               "RelativeToolTip": "Sosa.Reservas.Application\\Configuration\\MapperProfile.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAgwC4AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T21:12:45.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T21:12:45.5Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IUpdateHotelCommand.cs",
               "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\IUpdateHotelCommand.cs",
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\IUpdateHotelCommand.cs",
@@ -93,12 +109,11 @@
               "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\IUpdateHotelCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T21:08:29.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T21:08:29.677Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UpdateHotelCommand.cs",
               "DocumentMoniker": "C:\\Users\\ulipv\\source\\repos\\Sosa.Reservas\\Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\UpdateHotelCommand.cs",
               "RelativeDocumentMoniker": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\UpdateHotelCommand.cs",
@@ -106,8 +121,7 @@
               "RelativeToolTip": "Sosa.Reservas.Application\\DataBase\\Hotel\\Command\\UpdateHotel\\UpdateHotelCommand.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAgwBUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T21:08:20.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T21:08:20.385Z"
             }
           ]
         }
