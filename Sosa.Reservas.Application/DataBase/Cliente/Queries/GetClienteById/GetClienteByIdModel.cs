@@ -8,8 +8,15 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById
 {
     public class GetClienteByIdModel
     {
-        public int ClienteId { get; set; }
-        public string FullName { get; set; }
-        public string DNI { get; set; }
+        // User Identity
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Dni { get; set; }
+        public string Email { get; set; }
+
+        // Cliente
+
+        public int Id { get; set; }
+        public string Telefono { get; set; }
     }
 }

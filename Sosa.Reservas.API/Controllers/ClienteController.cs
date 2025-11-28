@@ -9,6 +9,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
+using System.Net;
 using System.Security.Claims;
 
 namespace Sosa.Reservas.API.Controllers
@@ -81,7 +82,7 @@ namespace Sosa.Reservas.API.Controllers
             return StatusCode(data.StatusCode, data);
         }
 
-
+        [Authorize(Roles = "Administrador")]
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(
             [FromServices] IGetAllClienteQuery getAllClienteQuery,
@@ -107,31 +108,27 @@ namespace Sosa.Reservas.API.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrador, Cliente")]
         [HttpGet("getById/{clienteId}")]
         public async Task<IActionResult> GetById(
             int clienteId,
-            [FromServices] IGetClienteByIdQuery getClienteByIdQuery)
+          [FromServices] IGetClienteByIdQuery getClienteByIdQuery)
         {
+
             if (clienteId == 0)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
-                  ResponseApiService.Response(StatusCodes.Status400BadRequest));
+                    ResponseApiService.Response(StatusCodes.Status400BadRequest));
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var data = await getClienteByIdQuery.Execute(clienteId);
+            var data = await getClienteByIdQuery.Execute(clienteId, int.Parse(userId));
 
-            if (data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                  ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
-                  ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
+            return StatusCode(data.StatusCode, data);
+
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpGet("getByDni/{clienteDni}")]
         public async Task<IActionResult> GetByDni(
          string clienteDni,
@@ -143,18 +140,10 @@ namespace Sosa.Reservas.API.Controllers
                   ResponseApiService.Response(StatusCodes.Status400BadRequest));
             }
 
+
             var data = await getClienteByDniQuery.Execute(clienteDni);
 
-            if (data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                  ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
-                  ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
+            return StatusCode(data.StatusCode, data);
         }
     }
 }

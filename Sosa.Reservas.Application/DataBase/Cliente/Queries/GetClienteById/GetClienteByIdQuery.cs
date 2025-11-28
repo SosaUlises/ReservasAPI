@@ -1,5 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Sosa.Reservas.Application.Features;
+using Sosa.Reservas.Domain.Entidades.Usuario;
+using Sosa.Reservas.Domain.Models;
 
 
 namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById
@@ -8,18 +13,54 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById
     {
         private readonly IDataBaseService _dataBaseService;
         private readonly IMapper _mapper;
+        private readonly UserManager<UsuarioEntity> _userManager;
 
-        public GetClienteByIdQuery(IDataBaseService dataBaseService, IMapper mapper)
+        public GetClienteByIdQuery(
+            IDataBaseService dataBaseService,
+            IMapper mapper,
+            UserManager<UsuarioEntity> userManager)
         {
             _dataBaseService = dataBaseService; 
             _mapper = mapper;
+            _userManager = userManager;
         }
 
-        public async Task<GetClienteByIdModel> Execute(int id)
+        public async Task<BaseResponseModel> Execute(int clienteId, int userId)
         {
-            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.Id == id);
+            var cliente = await _dataBaseService.Clientes
+                                        .Include(x => x.Usuario)
+                                        .FirstOrDefaultAsync(x => x.Id == clienteId);
 
-            return _mapper.Map<GetClienteByIdModel>(entity);
+            if (cliente == null)
+            {
+                return ResponseApiService.Response(StatusCodes.Status404NotFound,
+                    "Cliente no encontrado");
+            }
+
+
+            var usuarioActual = await _dataBaseService.Usuarios
+                                        .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (usuarioActual == null)
+            {
+                return ResponseApiService.Response(StatusCodes.Status401Unauthorized,
+                    "No se pudo identificar al usuario");
+            }
+
+
+            var roles = await _userManager.GetRolesAsync(usuarioActual);
+
+            // Si NO es admin y NO es el dueño de la info, no lo dejamos ver
+            if (!roles.Contains("Administrador") && cliente.UsuarioId != userId)
+            {
+                return ResponseApiService.Response(
+                    StatusCodes.Status403Forbidden,
+                    "No puedes ver datos de otro cliente"
+                );
+            }
+
+            return ResponseApiService.Response(StatusCodes.Status200OK,
+                   _mapper.Map<GetClienteByIdModel>(cliente));
         }
     }
 }

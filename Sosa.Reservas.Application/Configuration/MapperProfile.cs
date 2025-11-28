@@ -37,9 +37,6 @@ namespace Sosa.Reservas.Application.Configuration
 
             CreateMap<UsuarioEntity, UpdateClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, UpdateClienteModel>().ReverseMap();
-
-
-
             CreateMap<ClienteEntity, GetAllClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, GetClienteByIdModel>().ReverseMap();
             CreateMap<ClienteEntity, GetClienteByDniModel>().ReverseMap();

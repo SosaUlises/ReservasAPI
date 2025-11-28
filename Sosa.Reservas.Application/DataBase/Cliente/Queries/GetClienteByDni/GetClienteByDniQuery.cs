@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Sosa.Reservas.Application.Features;
+using Sosa.Reservas.Domain.Models;
 
 namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni
 {
@@ -14,11 +17,20 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni
             _mapper = mapper;
         }
 
-        public async Task<GetClienteByDniModel> Execute(string dni)
+        public async Task<BaseResponseModel> Execute(string dni)
         {
-            var entity = await _dataBaseService.Clientes.FirstOrDefaultAsync(x => x.Usuario.Dni == dni);
+            var cliente = await _dataBaseService.Clientes
+                                          .Include(x => x.Usuario)
+                                          .FirstOrDefaultAsync(x => x.Usuario.Dni == dni);
 
-            return _mapper.Map<GetClienteByDniModel>(entity);
+            if (cliente == null)
+            {
+                return ResponseApiService.Response(StatusCodes.Status404NotFound,
+                    "Cliente no encontrado");
+            }
+
+            return ResponseApiService.Response(StatusCodes.Status200OK,
+                    _mapper.Map<GetClienteByDniModel>(cliente));
         }
     }
 }

@@ -16,22 +16,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Sosa.Reservas.API.Controllers.AuthController",
-    "Method": "Register",
-    "RelativePath": "api/v1/auth/register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.CreateUsuario.CreateUsuarioModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
     "Method": "Create",
     "RelativePath": "api/v1/cliente/create",
@@ -203,22 +187,6 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
-    "Method": "Delete",
-    "RelativePath": "api/v1/usuario/delete/{userId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
     "Method": "GetAll",
     "RelativePath": "api/v1/usuario/get-all",
     "HttpMethod": "GET",
@@ -249,38 +217,6 @@
       {
         "Name": "userId",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
-    "Method": "Update",
-    "RelativePath": "api/v1/usuario/update",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuario.UpdateUsuarioModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
-    "Method": "UpdatePassword",
-    "RelativePath": "api/v1/usuario/update-password",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Sosa.Reservas.Application.DataBase.Usuario.Commands.UpdateUsuarioPassword.UpdateUsuarioPasswordModel",
         "IsRequired": true
       }
     ],
