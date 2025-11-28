@@ -34,8 +34,4 @@
     <ProjectReference Include="..\Sosa.Reservas.Domain\Sosa.Reservas.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DataBase\Habitacion\Query\" />
-  </ItemGroup>
-
 </Project>

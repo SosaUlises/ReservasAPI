@@ -11,7 +11,7 @@ using X.PagedList.EF;
 
 namespace Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles
 {
-    internal class GetAllHotelesQuery : IGetAllHotelesQuery
+    public class GetAllHotelesQuery : IGetAllHotelesQuery
     {
         private readonly IDataBaseService _dataBaseService;
         private readonly IMapper _mapper;
