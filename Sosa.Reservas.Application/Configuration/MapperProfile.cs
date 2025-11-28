@@ -4,10 +4,12 @@ using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
+using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Domain.Entidades.Cliente;
+using Sosa.Reservas.Domain.Entidades.Hotel;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
 
@@ -38,6 +40,10 @@ namespace Sosa.Reservas.Application.Configuration
             CreateMap<ClienteEntity, GetAllClienteModel>().ReverseMap();
             CreateMap<ClienteEntity, GetClienteByIdModel>().ReverseMap();
             CreateMap<ClienteEntity, GetClienteByDniModel>().ReverseMap();
+            #endregion
+
+            #region Hotel
+            CreateMap<HotelEntity, CreateHotelModel>().ReverseMap();
             #endregion
 
             #region Reserva
