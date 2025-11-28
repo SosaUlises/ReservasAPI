@@ -6,8 +6,6 @@ using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
-using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 

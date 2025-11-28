@@ -7,6 +7,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
+using Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.DeleteHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
@@ -19,6 +20,7 @@ using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.Validators.Cliente;
+using Sosa.Reservas.Application.Validators.Habitacion;
 using Sosa.Reservas.Application.Validators.Hotel;
 using Sosa.Reservas.Application.Validators.Login;
 using Sosa.Reservas.Application.Validators.Reserva;
@@ -61,12 +63,17 @@ namespace Sosa.Reservas.Application
             services.AddTransient<IGetHotelesByPaisQuery, GetHotelesByPaisQuery>();
             #endregion
 
+            #region Habitacion
+            services.AddTransient<ICreateHabitacionCommand, CreateHabitacionCommand>();
+            #endregion
+
             #region Validators
             services.AddScoped<IValidator<CreateClienteModel>, CreateClienteValidator>();
             services.AddScoped<IValidator<CreateHotelModel>, CreateHotelValidator>();
             services.AddScoped<IValidator<UpdateClienteModel>, UpdateClienteValidator>();
             services.AddScoped<IValidator<CreateReservaModel>, CreateReservaValidator>();
             services.AddScoped<IValidator<LoginModel>, LoginValidator>();
+            services.AddScoped<IValidator<CreateHabitacionModel>, CreateHabitacionValidator>();
             #endregion
 
             return services;

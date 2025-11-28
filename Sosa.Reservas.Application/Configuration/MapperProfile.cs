@@ -4,6 +4,7 @@ using Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteByDni;
 using Sosa.Reservas.Application.DataBase.Cliente.Queries.GetClienteById;
+using Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles;
@@ -12,6 +13,7 @@ using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Domain.Entidades.Cliente;
+using Sosa.Reservas.Domain.Entidades.Habitacion;
 using Sosa.Reservas.Domain.Entidades.Hotel;
 using Sosa.Reservas.Domain.Entidades.Reserva;
 using Sosa.Reservas.Domain.Entidades.Usuario;
@@ -50,6 +52,10 @@ namespace Sosa.Reservas.Application.Configuration
             CreateMap<HotelEntity, UpdateHotelModel>().ReverseMap();
             CreateMap<HotelEntity, GetAllHotelesModel>().ReverseMap();
             CreateMap<HotelEntity, GetHotelesByPaisModel>().ReverseMap();
+            #endregion
+
+            #region Habitacion
+            CreateMap<HabitacionEntity, CreateHabitacionModel>().ReverseMap();
             #endregion
 
             #region Reserva
