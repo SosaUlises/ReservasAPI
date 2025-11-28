@@ -41,7 +41,7 @@ namespace Sosa.Reservas.API.Controllers
         }
 
 
-        [Authorize(Roles = "Cliente")]
+        [Authorize(Roles = "Administrador, Cliente")]
         [HttpPut("update")]
         public async Task<IActionResult> Update(
               [FromBody] UpdateClienteModel model,

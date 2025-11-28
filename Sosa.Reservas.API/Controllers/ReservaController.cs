@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservasByCliente;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
+using System.Security.Claims;
 
 namespace Sosa.Reservas.API.Controllers
 {
@@ -14,6 +15,7 @@ namespace Sosa.Reservas.API.Controllers
     [TypeFilter(typeof(ExceptionManager))]
     public class ReservaController : ControllerBase
     {
+        [AllowAnonymous]
         [HttpPost("create")]
         public async Task<IActionResult> Create(
             [FromBody] CreateReservaModel model,
@@ -31,9 +33,10 @@ namespace Sosa.Reservas.API.Controllers
             var data = await createReservaCommand.Execute(model);
 
             return StatusCode(StatusCodes.Status201Created,
-                ResponseApiService.Response(StatusCodes.Status201Created,data));
+                ResponseApiService.Response(StatusCodes.Status201Created, data));
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll(
             [FromServices] IGetAllReservasQuery getAllReservasQuery,
@@ -42,13 +45,13 @@ namespace Sosa.Reservas.API.Controllers
             )
         {
 
-            if(pageNumber <= 0) pageNumber = 1;
-            if(pageSize <= 0) pageNumber = 10;
-            if(pageSize > 100) pageNumber = 100;
+            if (pageNumber <= 0) pageNumber = 1;
+            if (pageSize <= 0) pageNumber = 10;
+            if (pageSize > 100) pageNumber = 100;
 
-            var data = await getAllReservasQuery.Execute(pageNumber,pageSize);
+            var data = await getAllReservasQuery.Execute(pageNumber, pageSize);
 
-            if(!data.Any())
+            if (!data.Any())
             {
                 return StatusCode(StatusCodes.Status404NotFound,
                 ResponseApiService.Response(StatusCodes.Status404NotFound, data));
@@ -58,32 +61,26 @@ namespace Sosa.Reservas.API.Controllers
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
         }
 
-        [HttpGet("getByDni/{dni}")]
-        public async Task<IActionResult> GetByDni(
-            string dni,
-           [FromServices] IGetReservasByDniQuery getReservasByDniQuery)
+        [Authorize(Roles = "Administrador, Cliente")]
+        [HttpGet("getAllByCliente/{clienteId}")]
+        public async Task<IActionResult> GetAllByCliente(
+            int clienteId,
+           [FromServices] IGetAllReservasByClienteQuery getAllReservasByClienteQuery)
         {
-            if(dni == null)
+            if (clienteId == 0)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
                        ResponseApiService.Response(StatusCodes.Status400BadRequest));
             }
 
-            var data = await getReservasByDniQuery.Execute(dni);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var data = await getAllReservasByClienteQuery.Execute(clienteId, int.Parse(userId));
 
-            if(data == null)
-            {
-                return StatusCode(StatusCodes.Status404NotFound,
-                ResponseApiService.Response(StatusCodes.Status404NotFound));
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status200OK,
+            return StatusCode(StatusCodes.Status200OK,
                 ResponseApiService.Response(StatusCodes.Status200OK, data));
-            }
         }
 
-       
-        
+
+
     }
 }

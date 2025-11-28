@@ -1,6 +1,12 @@
-﻿namespace Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservasByCliente
 {
-    public class GetAllReservasModel
+    public class GetAllReservasByClienteModel
     {
         public string CodigoReserva { get; set; }
         public DateTime CheckIn { get; set; }

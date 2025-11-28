@@ -342,14 +342,14 @@
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
     "Method": "GetByDni",
-    "RelativePath": "api/v1/reserva/getByDni/{dni}",
+    "RelativePath": "api/v1/reserva/getByCliente/{clienteId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dni",
-        "Type": "System.String",
+        "Name": "clienteId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

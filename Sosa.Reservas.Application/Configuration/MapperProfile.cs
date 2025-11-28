@@ -13,6 +13,8 @@ using Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles;
 using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservasByCliente;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Domain.Entidades.Cliente;
@@ -34,7 +36,6 @@ namespace Sosa.Reservas.Application.Configuration
 
             #region Cliente
 
-            // Clientes
             CreateMap<CreateClienteModel, UsuarioEntity>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
 
@@ -65,23 +66,15 @@ namespace Sosa.Reservas.Application.Configuration
             #endregion
 
             #region Reserva
-            CreateMap<ReservaEntity, CreateReservaModel>().ReverseMap();
-            /*
-                        CreateMap<ReservaEntity, GetAllReservasModel>()
-                            .ForMember(dest => dest.ClienteFullName,
-                                opt => opt.MapFrom(src => src.Cliente.FullName))
-                            .ForMember(dest => dest.ClienteDni,
-                                opt => opt.MapFrom(src => src.Cliente.DNI));
 
+            CreateMap<CreateReservaModel, ReservaEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore()) 
+                .ForMember(dest => dest.PrecioTotal, opt => opt.Ignore()) 
+                .ForMember(dest => dest.Cliente, opt => opt.Ignore())
+                .ForMember(dest => dest.Habitacion, opt => opt.Ignore());
 
-                        CreateMap<ReservaEntity, GetReservasByDniModel>().ReverseMap();
-
-                        CreateMap<ReservaEntity, GetReservasByTipoModel>()
-                            .ForMember(dest => dest.ClienteFullName,
-                                opt => opt.MapFrom(src => src.Cliente.FullName))
-                            .ForMember(dest => dest.ClienteDni,
-                                opt => opt.MapFrom(src => src.Cliente.DNI));
-            */
+            CreateMap<ReservaEntity, GetAllReservasModel>().ReverseMap();
+            CreateMap<ReservaEntity, GetAllReservasByClienteModel>().ReverseMap();
 
             #endregion
         }

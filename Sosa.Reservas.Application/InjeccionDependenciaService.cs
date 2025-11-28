@@ -20,7 +20,7 @@ using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais;
 using Sosa.Reservas.Application.DataBase.Login.Command.Login;
 using Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva;
 using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservas;
-using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetReservasByDni;
+using Sosa.Reservas.Application.DataBase.Reserva.Queries.GetAllReservasByCliente;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetAllUsuarios;
 using Sosa.Reservas.Application.DataBase.Usuario.Queries.GetUsuarioById;
 using Sosa.Reservas.Application.Validators.Cliente;
@@ -41,7 +41,7 @@ namespace Sosa.Reservas.Application
             #region Usuarios
             services.AddTransient<IGetAllUsuarioQuery, GetAllUsuarioQuery>();
             services.AddTransient<IGetUsuarioByIdQuery, GetUsuarioByIdQuery>();
-           
+
             #endregion
 
             #region Clientes
@@ -56,7 +56,7 @@ namespace Sosa.Reservas.Application
             #region Reservas
             services.AddTransient<ICreateReservaCommand, CreateReservaCommand>();
             services.AddTransient<IGetAllReservasQuery, GetAllReservasQuery>();
-            services.AddTransient<IGetReservasByDniQuery, GetReservasByDniQuery>();
+            services.AddTransient<IGetAllReservasByClienteQuery, GetAllReservasByClienteQuery>();
             #endregion
 
             #region Hotel
