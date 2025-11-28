@@ -171,6 +171,22 @@
   },
   {
     "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "GetByPais",
+    "RelativePath": "api/v1/habitacion/getByHotel/{hotelId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
     "Method": "Update",
     "RelativePath": "api/v1/habitacion/update",
     "HttpMethod": "PUT",

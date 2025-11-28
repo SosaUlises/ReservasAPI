@@ -5,6 +5,8 @@ using Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.DeleteHabitacion;
 using Sosa.Reservas.Application.DataBase.Habitacion.Command.UpdateHabitacion;
 using Sosa.Reservas.Application.DataBase.Habitacion.Queries.GetAllHabitaciones;
+using Sosa.Reservas.Application.DataBase.Habitacion.Queries.GetHabitacionesByHotel;
+using Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais;
 using Sosa.Reservas.Application.Exception;
 using Sosa.Reservas.Application.Features;
 
@@ -99,6 +101,24 @@ namespace Sosa.Reservas.API.Controllers
 
             return StatusCode(StatusCodes.Status200OK,
                        ResponseApiService.Response(StatusCodes.Status200OK, data));
+        }
+
+        [AllowAnonymous]
+        [HttpGet("getByHotel/{hotelId}")]
+        public async Task<IActionResult> GetByPais(
+            int hotelId,
+            [FromServices] IGetHabitacionesByHotelQuery getHabitacionesByHotelQuery)
+        {
+            if (hotelId == 0)
+            {
+                return BadRequest(
+                    ResponseApiService.Response(StatusCodes.Status400BadRequest)
+                );
+            }
+
+            var data = await getHabitacionesByHotelQuery.Execute(hotelId);
+
+            return StatusCode(data.StatusCode, data);
         }
 
     }
