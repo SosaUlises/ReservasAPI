@@ -22,7 +22,7 @@ namespace Sosa.Reservas.Application.DataBase.Email
                 {
                     From = new ContentEmail
                     {
-                        Email = "sosa@bookings.com",
+                        Email = "ulipvp@gmail.com",
                         Name = "Sistema de Reservas"
                     },
                     Subject = "Confirmación de Reserva",
@@ -60,8 +60,8 @@ namespace Sosa.Reservas.Application.DataBase.Email
             }
                 };
 
-                await _emailService.Execute(emailModel);
-            }
+                 await _emailService.Execute(emailModel);
+        }
         
     }
 }

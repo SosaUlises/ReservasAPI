@@ -81,6 +81,7 @@ namespace Sosa.Reservas.Application
             #region Validators
             services.AddScoped<IValidator<CreateClienteModel>, CreateClienteValidator>();
             services.AddScoped<IValidator<CreateHotelModel>, CreateHotelValidator>();
+            services.AddScoped<IValidator<UpdateHotelModel>, UpdateHotelValidator>();
             services.AddScoped<IValidator<UpdateClienteModel>, UpdateClienteValidator>();
             services.AddScoped<IValidator<CreateReservaModel>, CreateReservaValidator>();
             services.AddScoped<IValidator<LoginModel>, LoginValidator>();

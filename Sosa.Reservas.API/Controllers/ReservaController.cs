@@ -15,25 +15,27 @@ namespace Sosa.Reservas.API.Controllers
     [TypeFilter(typeof(ExceptionManager))]
     public class ReservaController : ControllerBase
     {
-        [AllowAnonymous]
+        [Authorize(Roles = "Cliente")]
         [HttpPost("create")]
         public async Task<IActionResult> Create(
-            [FromBody] CreateReservaModel model,
-            [FromServices] ICreateReservaCommand createReservaCommand,
-            [FromServices] IValidator<CreateReservaModel> validator)
+        [FromBody] CreateReservaModel model,
+        [FromServices] ICreateReservaCommand createReservaCommand,
+        [FromServices] IValidator<CreateReservaModel> validator)
         {
-            var validate = await validator.ValidateAsync(model);
 
+            var validate = await validator.ValidateAsync(model);
             if (!validate.IsValid)
             {
                 return StatusCode(StatusCodes.Status400BadRequest,
-                ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
+                    ResponseApiService.Response(StatusCodes.Status400BadRequest, validate.Errors));
             }
 
-            var data = await createReservaCommand.Execute(model);
+            // Obtener ID del usuario logueado desde el JWT
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            return StatusCode(StatusCodes.Status201Created,
-                ResponseApiService.Response(StatusCodes.Status201Created, data));
+            var result = await createReservaCommand.Execute(model, userId);
+
+            return StatusCode(result.StatusCode, result);
         }
 
         [Authorize(Roles = "Administrador")]

@@ -703,10 +703,6 @@
       "CreateReservaModel": {
         "type": "object",
         "properties": {
-          "codigoReserva": {
-            "type": "string",
-            "nullable": true
-          },
           "checkIn": {
             "type": "string",
             "format": "date-time"
@@ -716,10 +712,6 @@
             "format": "date-time"
           },
           "cantidadPersonas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "clienteId": {
             "type": "integer",
             "format": "int32"
           },

@@ -25,9 +25,18 @@ namespace Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais
 
         public async Task<BaseResponseModel> Execute(string pais)
         {
+            if (string.IsNullOrWhiteSpace(pais))
+            {
+                return ResponseApiService.Response(
+                    StatusCodes.Status400BadRequest,
+                    "El pais no puede estar vacio");
+            }
+
+            pais = pais.Trim().ToLower();
+
             var hoteles = await _dataBaseService.Hoteles
-                                    .Where(x => x.Pais == pais)
-                                    .ToListAsync();
+                                .Where(x => x.Pais.ToLower() == pais)
+                                .ToListAsync();
 
             if (!hoteles.Any())
             {
@@ -42,5 +51,6 @@ namespace Sosa.Reservas.Application.DataBase.Hotel.Queries.GetHotelesByPais
                 StatusCodes.Status200OK,
                 model);
         }
+
     }
 }

@@ -8,6 +8,7 @@ namespace Sosa.Reservas.Application.DataBase.Hotel.Queries.GetAllHoteles
 {
     public class GetAllHotelesModel
     {
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Ciudad { get; set; }
         public string Pais { get; set; }

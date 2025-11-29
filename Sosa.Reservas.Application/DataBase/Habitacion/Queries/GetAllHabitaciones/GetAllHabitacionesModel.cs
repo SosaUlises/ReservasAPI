@@ -8,6 +8,8 @@ namespace Sosa.Reservas.Application.DataBase.Habitacion.Queries.GetAllHabitacion
 {
     public class GetAllHabitacionesModel
     {
+
+        public int Id { get; set; }
         public int HotelId { get; set; }
         public string Numero { get; set; }
         public string Tipo { get; set; } 

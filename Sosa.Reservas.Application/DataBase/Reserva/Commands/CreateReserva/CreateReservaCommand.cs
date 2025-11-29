@@ -13,30 +13,32 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
     public class CreateReservaCommand : ICreateReservaCommand
     {
         private readonly IDataBaseService _dataBaseService;
-        private readonly IMapper _mapper;
         private readonly ISendEmailConfirmacionReservaCommand _sendEmailConfirmacionReservaCommand;
+
         public CreateReservaCommand(
             IDataBaseService dataBaseService,
-            IMapper mapper,
             ISendEmailConfirmacionReservaCommand sendEmailConfirmacionReservaCommand)
         {
             _dataBaseService = dataBaseService;
-            _mapper = mapper;
             _sendEmailConfirmacionReservaCommand = sendEmailConfirmacionReservaCommand;
         }
 
-        public async Task<BaseResponseModel> Execute(CreateReservaModel model)
+        public async Task<BaseResponseModel> Execute(CreateReservaModel model, int userId)
         {
-            // Validacion de fechas
+
+            // Validación de fechas
             if (model.CheckIn >= model.CheckOut)
             {
                 return ResponseApiService.Response(
                     StatusCodes.Status400BadRequest,
-                    "Las fechas de CheckIn y CheckOut no son validas");
+                    "Las fechas de CheckIn y CheckOut no son válidas");
             }
 
+
+            // Obtener cliente del token
             var cliente = await _dataBaseService.Clientes
-                .FirstOrDefaultAsync(x => x.Id == model.ClienteId);
+                .Include(c => c.Usuario)
+                .FirstOrDefaultAsync(x => x.UsuarioId == userId);
 
             if (cliente == null)
             {
@@ -45,24 +47,26 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
                     "Cliente no encontrado");
             }
 
+            // Obtener habitacion
             var habitacion = await _dataBaseService.Habitaciones
+                .Include(h => h.Hotel)
                 .FirstOrDefaultAsync(x => x.Id == model.HabitacionId);
 
             if (habitacion == null)
             {
                 return ResponseApiService.Response(
                     StatusCodes.Status404NotFound,
-                    "Habitacion no encontrada");
+                    "Habitación no encontrada");
             }
 
             if (!habitacion.Activa)
             {
                 return ResponseApiService.Response(
                     StatusCodes.Status400BadRequest,
-                    "La habitacion no esta habilitada");
+                    "La habitación no está habilitada");
             }
 
-            // Chequear fechas
+            // Validar fechas existentes de reservas
             var hayReserva = await _dataBaseService.Reservas.AnyAsync(r =>
                 r.HabitacionId == model.HabitacionId &&
                 model.CheckIn < r.CheckOut &&
@@ -73,9 +77,10 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
             {
                 return ResponseApiService.Response(
                     StatusCodes.Status409Conflict,
-                    "La habitacion ya esta reservada en esas fechas");
+                    "La habitación ya está reservada en esas fechas");
             }
 
+            // Calculo de noches y precio total
             var noches = (model.CheckOut - model.CheckIn).Days;
 
             if (noches <= 0)
@@ -87,18 +92,34 @@ namespace Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva
 
             var precioTotal = habitacion.PrecioPorNoche * noches;
 
-            var entity = _mapper.Map<ReservaEntity>(model);
-            entity.PrecioTotal = precioTotal;
+            var checkInUtc = DateTime.SpecifyKind(model.CheckIn, DateTimeKind.Utc);
+            var checkOutUtc = DateTime.SpecifyKind(model.CheckOut, DateTimeKind.Utc);
 
+            // Crear entidad
+            var entity = new ReservaEntity
+            {
+                CodigoReserva = GenerarCodigoReserva(),
+                CheckIn = checkInUtc,
+                CheckOut = checkOutUtc,
+                CantidadPersonas = model.CantidadPersonas,
+                HabitacionId = model.HabitacionId,
+                ClienteId = cliente.Id,
+                PrecioTotal = precioTotal
+            };
+
+            // Guardar
             await _dataBaseService.Reservas.AddAsync(entity);
             await _dataBaseService.SaveAsync();
 
-            await _sendEmailConfirmacionReservaCommand.Execute(entity, cliente, habitacion);
+            // Enviar email
+           await _sendEmailConfirmacionReservaCommand.Execute(entity, cliente, habitacion);
+            return ResponseApiService.Response(StatusCodes.Status201Created,
+                "Reserva creada correctamente");
+        }
 
-            return ResponseApiService.Response(
-                StatusCodes.Status201Created,
-                "Reserva exitosa"
-            );
+        private string GenerarCodigoReserva()
+        {
+            return $"RSV-{Guid.NewGuid().ToString("N")[..8].ToUpper()}";
         }
     }
 

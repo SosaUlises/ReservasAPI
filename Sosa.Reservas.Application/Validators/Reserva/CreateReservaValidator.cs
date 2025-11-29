@@ -12,11 +12,9 @@ namespace Sosa.Reservas.Application.Validators.Reserva
     {
         public CreateReservaValidator()
         {
-            RuleFor(x => x.ClienteId).NotEmpty().NotNull();
             RuleFor(x => x.HabitacionId).NotEmpty().NotNull();
             RuleFor(x => x.CheckIn).NotEmpty().NotNull();
             RuleFor(x => x.CheckOut).NotEmpty().NotNull();
-            RuleFor(x => x.CodigoReserva).NotEmpty().NotNull();
             RuleFor(x => x.CantidadPersonas).NotEmpty().NotNull();
         }
     }
