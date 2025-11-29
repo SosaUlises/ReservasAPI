@@ -1,0 +1,379 @@
+[
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/v1/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Login.Command.Login.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Create",
+    "RelativePath": "api/v1/cliente/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.CreateCliente.CreateClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/cliente/delete/{clienteId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/cliente/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetByDni",
+    "RelativePath": "api/v1/cliente/getByDni/{clienteDni}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteDni",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/cliente/getById/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ClienteController",
+    "Method": "Update",
+    "RelativePath": "api/v1/cliente/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente.UpdateClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Create",
+    "RelativePath": "api/v1/habitacion/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Habitacion.Command.CreateHabitacion.CreateHabitacionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/habitacion/delete/{habitacionId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "habitacionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/habitacion/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "GetByPais",
+    "RelativePath": "api/v1/habitacion/getByHotel/{hotelId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HabitacionController",
+    "Method": "Update",
+    "RelativePath": "api/v1/habitacion/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Habitacion.Command.UpdateHabitacion.UpdateHabitacionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Create",
+    "RelativePath": "api/v1/hotel/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Hotel.Command.CreateHotel.CreateHotelModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/hotel/delete/{hotelId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/hotel/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "GetByPais",
+    "RelativePath": "api/v1/hotel/getByPais/{pais}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pais",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.HotelController",
+    "Method": "Update",
+    "RelativePath": "api/v1/hotel/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Hotel.Command.UpdateHotel.UpdateHotelModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "Create",
+    "RelativePath": "api/v1/reserva/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Sosa.Reservas.Application.DataBase.Reserva.Commands.CreateReserva.CreateReservaModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/reserva/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.ReservaController",
+    "Method": "GetAllByCliente",
+    "RelativePath": "api/v1/reserva/getAllByCliente/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/usuario/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sosa.Reservas.API.Controllers.UsuarioController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/usuario/getById/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -7,10 +7,13 @@ using Sosa.Reservas.Persistence.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de los servicios del contenedor
+// Controllers
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
 
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 
 // Inyección de dependencias
 builder.Services
@@ -20,19 +23,10 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration);
 
-
-// Configuración de la autorización
+// Autorización
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
-
-// Configuración del pipeline de solicitudes HTTP
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-await IdentityDataSeeder.SeedRolesAsync(app);
 
 app.UseSwagger();
 app.UseSwaggerUI(options =>
@@ -40,6 +34,9 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
     options.RoutePrefix = string.Empty;
 });
+
+// Seed de roles
+await IdentityDataSeeder.SeedRolesAsync(app);
 
 app.UseHttpsRedirection();
 

@@ -12,18 +12,15 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente
     public class UpdateClienteCommand : IUpdateClienteCommand
     {
         private readonly IDataBaseService _dataBaseService;
-        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<UsuarioEntity> _userManager;
 
         public UpdateClienteCommand(
             IDataBaseService dataBaseService,
-            IMapper mapper,
             IHttpContextAccessor httpContextAccessor,
-           UserManager<UsuarioEntity> userManager)
+            UserManager<UsuarioEntity> userManager)
         {
             _dataBaseService = dataBaseService;
-            _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
         }
@@ -33,21 +30,24 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente
             // Obtener rol del usuario logueado
             var httpUser = _httpContextAccessor.HttpContext.User;
             var roles = httpUser.FindAll(ClaimTypes.Role).Select(r => r.Value).ToList();
-
             bool esAdmin = roles.Contains("Administrador");
 
             var clienteLog = await _dataBaseService.Clientes
-                                  .FirstOrDefaultAsync(c => c.UsuarioId == userId);
+                                .FirstOrDefaultAsync(c => c.UsuarioId == userId);
 
-            // Validar propiedad SOLO si es Cliente
-            if (!esAdmin && model.Id != clienteLog.Id)
+            if (clienteLog == null)
+                return ResponseApiService.Response(StatusCodes.Status404NotFound, "Cliente no encontrado");
+
+
+            if (!esAdmin && clienteLog.UsuarioId != userId)
             {
                 return ResponseApiService.Response(
                     StatusCodes.Status403Forbidden,
-                    "No puedes acceder a datos de otro usuario");
+                    "No puedes modificar a otro usuario");
             }
 
-            var usuario = await _userManager.FindByIdAsync(model.UserId.ToString());
+
+            var usuario = await _userManager.FindByIdAsync(userId.ToString());
             if (usuario == null)
                 return ResponseApiService.Response(StatusCodes.Status404NotFound, "Usuario no encontrado");
 
@@ -65,25 +65,32 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Commands.UpdateCliente
                 return ResponseApiService.Response(StatusCodes.Status400BadRequest,
                     $"Ya existe un usuario con el DNI {model.Dni}");
 
-            _mapper.Map(model, usuario);
+
+            usuario.Nombre = model.Nombre;
+            usuario.Apellido = model.Apellido;
+            usuario.Email = model.Email;
+            usuario.UserName = model.Email;
+            usuario.Dni = model.Dni;
+
+            if (!string.IsNullOrWhiteSpace(model.Password))
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(usuario);
+                await _userManager.ResetPasswordAsync(usuario, token, model.Password);
+            }
+
             var result = await _userManager.UpdateAsync(usuario);
             if (!result.Succeeded)
                 return ResponseApiService.Response(StatusCodes.Status400BadRequest,
                     "Error al modificar el usuario");
 
-            // Actualizar Cliente
-            var cliente = await _dataBaseService.Clientes.FirstOrDefaultAsync(c => c.Id == model.Id);
-            if (cliente == null)
-                return ResponseApiService.Response(StatusCodes.Status404NotFound, "Cliente no encontrado");
 
-            _mapper.Map(model, cliente);
+            clienteLog.Telefono = model.Telefono;
 
-            _dataBaseService.Clientes.Update(cliente);
             await _dataBaseService.SaveAsync();
 
             return ResponseApiService.Response(StatusCodes.Status200OK,
                 "Cliente actualizado correctamente");
         }
-
     }
+
 }

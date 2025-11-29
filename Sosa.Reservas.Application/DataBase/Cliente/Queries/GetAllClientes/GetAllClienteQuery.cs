@@ -21,7 +21,7 @@ namespace Sosa.Reservas.Application.DataBase.Cliente.Queries.GetAllClientes
 
         public async Task<IPagedList<GetAllClienteModel>> Execute(int pageNumber, int pageSize)
         {
-            var query = _dataBaseService.Clientes.AsQueryable();
+            var query = _dataBaseService.Clientes.Include(x=>x.Usuario).AsQueryable();
 
             var queryDto = query.ProjectTo<GetAllClienteModel>(_mapper.ConfigurationProvider);
 

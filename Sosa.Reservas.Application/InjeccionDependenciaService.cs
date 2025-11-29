@@ -42,6 +42,7 @@ namespace Sosa.Reservas.Application
             #region Usuarios
             services.AddTransient<IGetAllUsuarioQuery, GetAllUsuarioQuery>();
             services.AddTransient<IGetUsuarioByIdQuery, GetUsuarioByIdQuery>();
+            services.AddTransient<ILoginCommand, LoginCommand>();
 
             #endregion
 
