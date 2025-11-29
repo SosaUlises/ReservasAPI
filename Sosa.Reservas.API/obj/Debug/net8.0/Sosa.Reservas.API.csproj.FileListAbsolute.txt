@@ -198,7 +198,6 @@ C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\sta
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\Sosa.Res.4445C41F.Up2Date
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\Sosa.Reservas.API.dll
 C:\Users\ulipv\source\repos\Sosa.Reservas\Sosa.Reservas.API\obj\Debug\net8.0\refint\Sosa.Reservas.API.dll

@@ -22,7 +22,7 @@ namespace Sosa.Reservas.External
         {
             // Conexion DB (PostgreSQL)
 
-            var connectionString = configuration.GetConnectionString("SQLConnectionStrings");
+            var connectionString = configuration.GetConnectionString("PostgreConnectionString");
 
             services.AddDbContext<DataBaseService>(options =>
                 options.UseNpgsql(connectionString)
