@@ -33,7 +33,11 @@ Para probar los endpoints protegidos por rol **Administrador**, usa el usuario p
 4. Haz clic en el botón verde **Authorize** en Swagger.
 5. Escribe: `Bearer TU_TOKEN_AQUI` (respetando el espacio después de Bearer) y presiona **Authorize**.
 
-> ⚠️ Recuerda: los endpoints de administración (CRUD de Hoteles/Habitaciones/Clientes) requieren rol **Admin**.  
+> ⚠️ Recuerda: los endpoints de administración (CRUD de Hoteles/Habitaciones) requieren rol **Admin**.  
+
+> **Nota para probar el rol Cliente:**  
+> Primero registrate en el endpoint **`/api/v1/cliente/create`**.  
+> Luego iniciá sesión en **`/auth/login`** y utilizá el token JWT obtenido para acceder a los endpoints protegidos del rol Cliente.
 
 ---
 
